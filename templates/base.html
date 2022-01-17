@@ -1,0 +1,31 @@
+<!-- ベースになるテンプレート -->
+<html>
+<head>
+    <!-- タイトル -->
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div>
+        <!-- ナビゲーションバー -->
+        {% include 'navigation.html' %}
+        
+        <!-- コンテンツヘッダー -->
+        <header>
+            {% block header %}{% endblock %}
+        </header>
+
+        <!-- コンテンツ -->
+        <main>
+            {% block contents %}{% endblock %}
+        </main>
+
+        <!-- フッター -->
+        <footer>
+            {% block footer %}{% endblock %}
+        </footer>
+    </div>
+
+    <!-- カスタムスクリプト -->
+    {% block scripts %}{% endblock %}
+</body>
+</html>

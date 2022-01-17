@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block header %}
+    <h1>企業ユーザー用のプロフィール編集画面</h1>
+{% endblock %}
+
+{% block contents %}
+    {% include 'message.html' %}
+    <form name="main_form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            {{ form.company_name | attr:"placeholder:企業名を入力" | add_class:"any_class_name" }}
+        </div>
+        <div>
+            {{ form.phone_number | attr:"placeholder:電話番号を入力" | add_class:"any_class_name" }}
+        </div>
+        <div>
+            {{ form.address | attr:"placeholder:住所を入力" | attr:"rows:5" | add_class:"any_class_name" }}
+        </div>
+        <button type="submit" name="save" class="any_class_name">
+            保存する
+        </button>
+    </form>
+{% endblock %}
