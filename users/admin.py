@@ -6,6 +6,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext, gettext_lazy as _
 from django.contrib import admin
 from allauth.socialaccount.models import SocialToken, SocialAccount, SocialApp
+from recruit.models import *
 
 from .models import NormalUser, CompanyUser
 
@@ -48,8 +49,10 @@ class NormalUserAdmin(admin.ModelAdmin):
     ordering = ('nickname',)
     
     
-@admin.register(CompanyUser)
-class CompanyUserAdmin(admin.ModelAdmin):
-    fields = ('company_name', 'address', 'phone_number')
-    list_display = ('company_name', 'address', 'phone_number')
-    ordering = ('company_name',)
+@admin.register(ItemModel)
+class ItemModelAdmin(admin.ModelAdmin):
+    list_display = ('id','name')
+
+@admin.register(UserFavoriteItemModel)
+class UserFavoriteItemModelAdmin(admin.ModelAdmin):
+    list_display = ('id','item','user')
