@@ -1,4 +1,4 @@
-<div>
+{% comment %} <div>
     <!-- ログイン有無、企業・一般ユーザーの状態によって表示を切り替え -->
     <a href="{% url 'recruit:item' %}">求人一覧</a>
     {% if request.user.is_authenticated %}
@@ -18,4 +18,50 @@
     {% else %}
         <p>ログインしていません</p>
     {% endif %}
-</div>
+</div> {% endcomment %}
+<div class="section wf-section">
+    <div class="container gray">
+      <div>
+        <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="w-nav">
+          <div class="nav-section">
+            <div class="nav-section-left">
+              <a href="#" class="brand w-nav-brand"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" width="67" alt=""></a>
+            </div>
+            <div class="nav-section-right">
+              <div class="nav-block">
+                <div class="nav-block-sub">
+                  <div class="nav-lavel">
+                    {% if request.user.is_authenticated %}
+                      <p>[ログイン中です] email: {{ user.email }}</p>
+                    {% else %}
+                      <a href="{% url 'account_signup' %}" class="nav_button w-button">無料会員登録</a>
+                    {% endif %}
+                  </div>
+                  <div class="nav-lavel nav_lavel_small_hide">
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'account_logout' %}" class="nav_button w-button">ログアウト</a>
+                    {% else %}
+                        <a href="{% url 'account_login' %}" class="nav_button w-button">ログイン</a>
+                    {% endif %}
+                  </div>
+                  {% if request.user.is_authenticated %}
+                  <div class="nav_label_small">
+                    <a href="{% url 'account_logout' %}" class="nav_button_small w-button"></a><!--スマホのログアウトボタン -->
+                  </div>
+                  {% endif %}
+                </div>
+                <nav role="navigation" class="nav-menu w-nav-menu">
+                  <a href="{% url 'recruit:item' %}" class="nav-link-2 w-nav-link">求人検索</a>
+                  {% comment %} <a href="#" class="nav-link-3 w-nav-link">よくある質問</a> {% endcomment %}
+                  <a href="{% url 'index' %}" class="nav-link-4 w-nav-link">Home</a>
+                </nav>
+                <div class="w-nav-button">
+                  <div class="w-icon-nav-menu"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

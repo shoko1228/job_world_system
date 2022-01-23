@@ -9,3 +9,7 @@ class IndexView(TemplateView):
     
 class LoginRequiredView(TemplateView):
     template_name = "login_required.html"
+
+        
+class CancelView(TemplateView):
+    template_name = "cancel.html"

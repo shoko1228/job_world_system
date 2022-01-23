@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from app.views import IndexView, LoginRequiredView
+from app.views import IndexView, LoginRequiredView,CancelView
 
 admin.site.site_title = "求人サイト"
 admin.site.name = "求人サイト"
@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('allauth.urls')),
     path('', IndexView.as_view(), name="index"),
     path('login_required', LoginRequiredView.as_view(), name="login_required"),
+    path('cancel', CancelView.as_view(), name="cancel"),
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('recruit/', include('recruit.urls'))

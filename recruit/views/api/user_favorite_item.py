@@ -1,6 +1,7 @@
 from rest_framework.views import APIView, set_rollback
 from rest_framework.response import Response
 from rest_framework import status
+from django.shortcuts import render, redirect
 
 from recruit.models import UserFavoriteItemModel, ItemModel
 from recruit.serializers.user_favorite_item import UserFavoriteItemSerializer 
@@ -19,6 +20,10 @@ class UserFavoriteItemAPIView(APIView):
     
     
     def post(self, request):
+        #ログインしていない場合は会員登録へ
+        if not self.request.user.is_authenticated:
+            return redirect("account_signup")
+
         '''
         データ登録
         '''
