@@ -20,9 +20,7 @@ class UserFavoriteItemAPIView(APIView):
     
     
     def post(self, request):
-        #ログインしていない場合は会員登録へ
-        if not self.request.user.is_authenticated:
-            return redirect("account_signup")
+
 
         '''
         データ登録

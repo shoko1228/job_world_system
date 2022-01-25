@@ -28,6 +28,20 @@
 {% endblock %} 
 {% endcomment %}
 
+{% if items.has_previous %}
+ <a href="?page={{ items.previous_page_number }}">&lt; 前のページ</a>
+{% else %}
+ <span>&lt; 前のページ</span>
+{% endif %}
+{{ items.number }}ページ
+
+{% if items.has_next %}
+ <a href="?page={{ items.next_page_number }}">次のページ &gt;</a>
+{% else %}
+ <span>次のページ &gt;</span>
+{% endif %}
+
+
 <div class="page-wrapper w-container">
   <div class="section wf-section">
     <div class="container">
@@ -666,10 +680,17 @@
 {% block scripts %}
 <script>
   const CSRF_TOKEN = "{{ csrf_token }}";
+
   for (let elm of document.getElementsByName("favoriteItem")) {
     elm.addEventListener("click", (e) => {
-      favoriteItem(e.target.dataset.item_id);
-      e.target.value = "いいね済";
+      //ログインしていない場合は会員登録へ
+      {% if request.user.is_authenticated %}
+        favoriteItem(e.target.dataset.item_id);
+        e.target.value = "いいね済";
+      {% else %}
+        window.location.href = "{% url 'account_signup' %}"
+      {% endif %}
+
     });
   }
   async function favoriteItem(itemId) {
@@ -678,6 +699,7 @@
     });
     res = await executeAPI("api/item_favorite", postData, "POST");
     if (res) {
+
     }
   }
 

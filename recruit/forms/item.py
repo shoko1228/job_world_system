@@ -26,7 +26,7 @@ class ItemSearchForm(forms.ModelForm):
         search_words = self.cleaned_data.get('search_words')
         location = self.cleaned_data.get('location')
         if search_words:
-            Items = Items.filter(title__contains=search_words)
+            Items = Items.filter(name__contains=search_words)
         if location:
             Items = Items.filter(location=location)
         return Items

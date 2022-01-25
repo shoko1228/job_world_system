@@ -3,8 +3,6 @@ from django.http.response import HttpResponse
 from django.views.generic import TemplateView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-
-
 from ..models import ItemModel, UserFavoriteItemModel
 from ..forms.item import ItemSearchForm
 from app.const import USER_TYPE
@@ -20,9 +18,7 @@ class ItemView(TemplateView):
         form = ItemSearchForm(request.GET)
         items = form.filter_items(items)
         item_cnt = len(items)
-        
-
-        
+          
         for item in items:
             item.is_favorited = False
             if self.request.user.is_authenticated:
