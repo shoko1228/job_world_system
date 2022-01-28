@@ -149,8 +149,8 @@ ACCOUNT_ADAPTER = "users.adapter.AccountAdapter"
 
 LOGIN_URL = '/login'
 #一般ユーザーのログイン後の遷移先
-#LOGIN_REDIRECT_URL = '/recruit/dashboard'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/recruit/dashboard'
+#LOGIN_REDIRECT_URL = '/'
 #企業ユーザーのログイン後の遷移先
 #LOGIN_REDIRECT_URL_COMPANY = '/recruit/company_dashboard'
 LOGIN_REDIRECT_URL_COMPANY = '/recruit/company_dashboard'
