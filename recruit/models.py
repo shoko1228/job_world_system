@@ -28,9 +28,17 @@ class SectorModel(models.Model):
     def __str__(self):
         return self.sector
 
+class WantedTalentModel(models.Model):
+    talent = models.CharField(verbose_name="人材条件",max_length=64, null=False, blank=False)
+    class Meta:
+        db_table = "WantedTalent"
+    
+    def __str__(self):
+        return self.talent
+
 
 class ItemModel(models.Model):
-    id = models.CharField(max_length=32, default=ulid.new, primary_key=True, editable=False)
+    id = models.CharField(max_length=125, default=ulid.new, primary_key=True, editable=False)
     name = models.CharField(verbose_name="求人題名",max_length=256, null=False, blank=False)#title
     sub_title = models.CharField(verbose_name="求人題名補助短文",max_length=256, null=True, blank=True)
     location = models.ForeignKey(LocationModel, verbose_name="勤務地", null=True, blank=True,on_delete=models.SET_DEFAULT, default=1 )
@@ -40,14 +48,14 @@ class ItemModel(models.Model):
     employment_status = models.CharField(verbose_name="雇用形態",max_length=64, null=True, blank=True)
     industry = models.ForeignKey(IndustryModel, verbose_name="業界", null=True, blank=True,on_delete=models.SET_DEFAULT, default=1 )
     sector = models.ForeignKey(SectorModel, verbose_name="職種", null=True, blank=True,on_delete=models.SET_DEFAULT, default=1 )
-    salary = models.IntegerField(verbose_name="給料", null=True, blank=True)
-    # 勤務時間
-    # 休日・休暇
-    # 待遇・福利厚生
-    # 求めている人材
-    # 採用人数
-    # 選考内容
-    # 応募締切
+    salary = models.CharField(verbose_name="給料",max_length=125, null=True, blank=True)
+    working_hours = models.CharField(verbose_name="勤務時間",max_length=125, null=True, blank=True)
+    holidays = models.CharField(verbose_name="休日・休暇",max_length=256, null=True, blank=True)
+    #福利厚生
+    wanted_talent = models.ForeignKey(WantedTalentModel, verbose_name="求めている人材", null=True, blank=True,on_delete=models.SET_DEFAULT, default=1 )
+    number_hired = models.CharField(verbose_name="採用人数",max_length=125, null=True, blank=True)
+    selection = models.TextField(verbose_name="選考内容",null=True, blank=True)
+    closing_date = models.CharField(verbose_name="応募締切",max_length=125, null=True, blank=True)
     created_at = models.DateTimeField(verbose_name="作成日時", auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name="更新日時", auto_now=True)
     deleted_at = models.DateTimeField(verbose_name="削除日時", blank=True,null=True)

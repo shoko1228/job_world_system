@@ -58,6 +58,8 @@ class NormalUser(models.Model):
     gender = models.IntegerField(_('性別'), blank=True, default=0)
     phone_number = models.CharField(_('電話番号'), max_length=16, blank=True)
     address = models.TextField(_('住所'), blank=False)
+    created_at = models.DateTimeField(verbose_name="作成日時", auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name="更新日時", auto_now=True)
 
 
     def __str__(self):

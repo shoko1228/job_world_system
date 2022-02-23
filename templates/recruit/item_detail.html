@@ -74,10 +74,10 @@
             <div class="job_detail_sentence_width_block">
               <div class="job-detail-sentence-section">
                 <div class="job-detail-sentensce-lavel-div">
-                  <div class="text-block-11">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
+                  <div class="text-block-11">{{item.name}}</div>
                 </div>
                 <div class="job-detail-sentence-label-div2">
-                  <div>東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
+                  <div>{{item.sub_title}}</div>
                 </div>
               </div>
             </div>
@@ -89,7 +89,7 @@
                 <div class="job_detail_infomation_class_title">
                   <div class="job_detail_infomation_class_title_text">仕事内容</div>
                   <div class="job_detail_infomation_class_div">
-                    <div>通信業界を主に接客・販売を通してセールスプロモーションに携わっていただきます。お客様のニーズをヒアリングし最適な商品とプランのご提案を行なって契約に繋げます。また集客の為のイベントの運営に携わる等、クライアントの売上げにご貢献いただきます。</div>
+                    <div>{{item.description}}</div>
                   </div>
                 </div>
               </div>
@@ -108,7 +108,7 @@
                         <div class="job_detail_infomation_sentence_label_text">雇用形態</div>
                       </div>
                       <div class="job_detail_infomation_sentence">
-                        <div class="job_detail_infomation_sentence_text">正社員</div>
+                        <div class="job_detail_infomation_sentence_text">{{item.employment_status}}</div>
                       </div>
                     </div>
                     <div class="job_detail_infomation_sentence_div">
@@ -116,7 +116,7 @@
                         <div class="job_detail_infomation_sentence_label_text">勤務地</div>
                       </div>
                       <div class="job_detail_infomation_sentence">
-                        <div class="job_detail_infomation_sentence_text">東京23区</div>
+                        <div class="job_detail_infomation_sentence_text">{{item.location}}</div>
                       </div>
                     </div>
                     <div class="job_detail_infomation_sentence_div">
@@ -124,7 +124,7 @@
                         <div class="job_detail_infomation_sentence_label_text">年収</div>
                       </div>
                       <div class="job_detail_infomation_sentence">
-                        <div class="job_detail_infomation_sentence_text">400〜800万</div>
+                        <div class="job_detail_infomation_sentence_text">{{item.salary}}</div>
                       </div>
                     </div>
                   </div>
@@ -139,7 +139,7 @@
                         <div class="job_detail_infomation_sentence_label_text">勤務時間</div>
                       </div>
                       <div class="job_detail_infomation_sentence">
-                        <div class="job_detail_infomation_sentence_text">9:00〜17:00</div>
+                        <div class="job_detail_infomation_sentence_text">{{item.working_hours}}</div>
                       </div>
                     </div>
                     <div class="job_detail_infomation_sentence_div">
@@ -147,7 +147,7 @@
                         <div class="job_detail_infomation_sentence_label_text">休日・休暇</div>
                       </div>
                       <div class="job_detail_infomation_sentence">
-                        <div class="job_detail_infomation_sentence_text">週休2日制、年次有給休暇、慶弔休暇、産前産後休暇、育児・介護休暇、誕生日休日、積立年休制度</div>
+                        <div class="job_detail_infomation_sentence_text">{{item.holidays}}</div>
                       </div>
                     </div>
                     <div class="job_detail_infomation_sentence_div">
@@ -178,7 +178,7 @@
                         <div class="job_detail_infomation_sentence_label_text">採用人数</div>
                       </div>
                       <div class="job_detail_infomation_sentence">
-                        <div class="job_detail_infomation_sentence_text">複数名</div>
+                        <div class="job_detail_infomation_sentence_text">{{item.number_hired}}</div>
                       </div>
                     </div>
                     <div class="job_detail_infomation_sentence_div">
@@ -186,7 +186,7 @@
                         <div class="job_detail_infomation_sentence_label_text">選考内容</div>
                       </div>
                       <div class="job_detail_infomation_sentence">
-                        <div class="job_detail_infomation_sentence_text">会社説明会→一次面接→最終面接<br>　（採用結果の判断が難しい場合は最大3回まで再度面接の可能性がございます）</div>
+                        <div class="job_detail_infomation_sentence_text">{{item.selection}}</div>
                       </div>
                     </div>
                     <div class="job_detail_infomation_sentence_div">
@@ -194,7 +194,7 @@
                         <div class="job_detail_infomation_sentence_label_text">応募締切</div>
                       </div>
                       <div class="job_detail_infomation_sentence">
-                        <div class="job_detail_infomation_sentence_text">2021/11/16</div>
+                        <div class="job_detail_infomation_sentence_text">{{item.closing_date}}</div>
                       </div>
                     </div>
                   </div>
