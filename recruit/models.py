@@ -51,7 +51,9 @@ class ItemModel(models.Model):
     salary = models.CharField(verbose_name="給料",max_length=125, null=True, blank=True)
     working_hours = models.CharField(verbose_name="勤務時間",max_length=125, null=True, blank=True)
     holidays = models.CharField(verbose_name="休日・休暇",max_length=256, null=True, blank=True)
-    #福利厚生
+    welfare = models.TextField(verbose_name="待遇・福利厚生", null=True, blank=True)
+    #写真
+    image1 = models.ImageField(verbose_name="画像１", upload_to='images',null=True, blank=True)
     wanted_talent = models.ForeignKey(WantedTalentModel, verbose_name="求めている人材", null=True, blank=True,on_delete=models.SET_DEFAULT, default=1 )
     number_hired = models.CharField(verbose_name="採用人数",max_length=125, null=True, blank=True)
     selection = models.TextField(verbose_name="選考内容",null=True, blank=True)

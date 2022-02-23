@@ -76,7 +76,7 @@
               </div>
               <div class="search-column">
                 <div class="w-form">
-                  <form>
+                  <form action="{% url 'recruit:item' %}">
                     {{ form }}
                     <input type="submit" value="この条件で検索する" class="job_search_button w-button" style="margin-top:10px">
                   </form>
@@ -277,9 +277,9 @@
                       <div class="searchjob_slider_middle">
                         <div class="searchjob_slider_middle_left">
                           <div class="searchjob_slider_left_sentence">
-                            <div class="text-block-23">{{item.name}}</div>
-                            <div class="text-block-24">{{item.sub_title}}</div>
-                            <div class="text-block-24-copy">{{item.sector}}</div>
+                            <div class="text-block-23">{{item.name| truncatechars:47}}</div>
+                            <div class="text-block-24">{{item.sub_title| truncatechars:50}}</div>
+                            <div class="text-block-24-copy">{{item.sector| default:"" }}</div>
                           </div>
                         </div>
                         <div class="searchjob_slider_middle_middle">
@@ -431,5 +431,5 @@
 
   $('input').click(function() {
     console.log('クリックされました！');
-})
+  })
 </script>

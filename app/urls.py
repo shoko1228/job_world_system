@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from app.views import IndexView, LoginRequiredView,CancelView
+from django.conf import settings
+from django.conf.urls.static import static
 
 admin.site.site_title = "求人サイト"
 admin.site.name = "求人サイト"
@@ -30,3 +32,6 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('recruit/', include('recruit.urls'))
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
+

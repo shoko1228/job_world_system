@@ -8,6 +8,8 @@ class ItemSearchForm(forms.ModelForm):
     class Meta:
         model = ItemModel
         fields = (
+            'industry',
+            'sector',
             'location',
         )
         # widgets = {
