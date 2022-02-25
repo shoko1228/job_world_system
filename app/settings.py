@@ -122,7 +122,7 @@ STATICFILES_DIRS = (
 )
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 # Password validation
@@ -219,7 +219,7 @@ else:
 
 if not DEBUG:
     STATIC_ROOT='/usr/share/nginx/html/static'
-    MEDIA_ROOT='/usr/share/nginx/html/media'
+    MEDIA_ROOT='/usr/share/nginx/html/media/'
 else:
     STATIC_ROOT = '/static'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
