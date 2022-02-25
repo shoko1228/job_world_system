@@ -27,8 +27,14 @@ class ItemSearchForm(forms.ModelForm):
 
         search_words = self.cleaned_data.get('search_words')
         location = self.cleaned_data.get('location')
+        sector = self.cleaned_data.get('sector')
+        industry = self.cleaned_data.get('industry')
         if search_words:
             Items = Items.filter(name__contains=search_words)
         if location:
             Items = Items.filter(location=location)
+        if industry:
+            Items = Items.filter(industry=industry)
+        if sector:
+            Items = Items.filter(sector=sector)
         return Items

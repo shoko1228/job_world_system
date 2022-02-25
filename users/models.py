@@ -8,6 +8,7 @@ from django.core.mail import send_mail
 import ulid
 
 from app.const import USER_TYPE
+from recruit.models import *
 
 
 class CustomUserManager(UserManager):
@@ -52,21 +53,38 @@ class CustomUserManager(UserManager):
 
 class NormalUser(models.Model):
     id = models.CharField(max_length=32, default=ulid.new, primary_key=True, editable=False) 
-    first_name = models.CharField(_('名前'), max_length=32, blank=True)
-    last_name = models.CharField(_('苗字'), max_length=32, blank=True)
-    nickname = models.CharField(_('ニックネーム'), max_length=32, blank=True)
-    gender = models.IntegerField(_('性別'), blank=True, default=0)
-    phone_number = models.CharField(_('電話番号'), max_length=16, blank=True)
-    address = models.TextField(_('住所'), blank=False)
+    # first_name = models.CharField(_('名前'), max_length=32, blank=True)
+    # last_name = models.CharField(_('苗字'), max_length=32, blank=True)
+    # nickname = models.CharField(_('ニックネーム'), max_length=32, blank=True)
+    # gender = models.IntegerField(_('性別'), blank=True, default=0)
+    # phone_number = models.CharField(_('電話番号'), max_length=16, blank=True)
+    # address = models.TextField(_('住所'), blank=False)
     created_at = models.DateTimeField(verbose_name="作成日時", auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name="更新日時", auto_now=True)
 
+    pr_message = models.TextField(_('ひと言PR'), max_length=500, null=True, blank=True)
+    favorite_thing = models.TextField(_('好きなことは？'), max_length=500,null=True, blank=True)
+    status =  models.IntegerField(_('ステータス'), blank=True, default=0)
+    image_top = models.ImageField(_('トップ画像'), upload_to='images',null=True, blank=True)
+    image1 = models.ImageField(_('画像１'), upload_to='images',null=True, blank=True)
+    image2 = models.ImageField(_('画像2'), upload_to='images',null=True, blank=True)
+    image3 = models.ImageField(_('画像3'), upload_to='images',null=True, blank=True)
+    name_kanji= models.CharField(_('フルネーム（漢字）'), max_length=32, null=False, blank=False)
+    name_kana= models.CharField(_('フルネーム（かな）'), max_length=32, null=False, blank=False)
+    birthdate = models.DateTimeField(_('生年月日'), null=False, blank=False)
+    gender = models.IntegerField(_('性別'), null=False, blank=False)
+    #address = models.ForeignKey(LocationModel, verbose_name="住まい（都道府県）", null=False, blank=False, on_delete=models.SET_DEFAULT, default=1 )
+    currently_job= models.CharField(_('現在の職業'), max_length=100, null=True, blank=True)
+
+    
+
 
     def __str__(self):
-        return self.last_name + " " + self.first_name
+        return self.name_kanji
+        #return self.last_name + " " + self.first_name
 
     def is_blank(self):
-        if not self.nickname:
+        if not self.name_kanji:
             return True
         else:
             return False

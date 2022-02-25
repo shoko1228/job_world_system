@@ -27,9 +27,18 @@ class ItemView(TemplateView):
                     for favorite_item in favorite_items:
                         if item.id == favorite_item.item_id:
                             item.is_favorited = True
-                        break
+                            break
 
-
+        items_feature = ItemModel.objects.filter(feature_flag=1)
+        for item in items_feature:
+            item.is_favorited = False
+            if self.request.user.is_authenticated:
+                if request.user.user_type == USER_TYPE.NORMAL_USER:
+                    favorite_items = UserFavoriteItemModel.objects.filter(user=request.user).all()
+                    for favorite_item in favorite_items:
+                        if item.id == favorite_item.item_id:
+                            item.is_favorited = True
+                            break
   
         params = request.GET.copy()
         if 'page' in params:
@@ -49,5 +58,6 @@ class ItemView(TemplateView):
             "items":items,
             "item_cnt":item_cnt,
             "form":form,
-            "search_params":search_params
+            "search_params":search_params,
+            "items_feature":items_feature
         })

@@ -44,9 +44,16 @@ class CustomUserAdmin(UserAdmin):
 
 @admin.register(NormalUser)
 class NormalUserAdmin(admin.ModelAdmin):
-    fields = ('nickname', 'last_name', 'first_name')
-    list_display = ('nickname', 'last_name', 'first_name')
-    ordering = ('nickname',)
+    # fields = ('nickname', 'last_name', 'first_name')
+    #list_display = ('nickname', 'last_name', 'first_name')
+    #ordering = ('nickname',)
+    list_display = ('name_kanji', 'status')
+
+@admin.register(CompanyUser)
+class CompanyUserAdmin(admin.ModelAdmin):
+    #fields = ('company_name', 'address')
+    list_display = ('company_name', 'address')
+    ordering = ('company_name',)
     
     
 @admin.register(ItemModel)
@@ -56,3 +63,19 @@ class ItemModelAdmin(admin.ModelAdmin):
 @admin.register(UserFavoriteItemModel)
 class UserFavoriteItemModelAdmin(admin.ModelAdmin):
     list_display = ('id','item','user','created_at','delete_flg')
+
+@admin.register(LocationModel)
+class LocationModelAdmin(admin.ModelAdmin):
+    list_display = ('id','location')
+
+@admin.register(IndustryModel)
+class IndustryModelAdmin(admin.ModelAdmin):
+    list_display = ('id','industry')
+
+@admin.register(SectorModel)
+class SectorModelAdmin(admin.ModelAdmin):
+    list_display = ('id','sector')
+
+@admin.register(WantedTalentModel)
+class WantedTalentModelAdmin(admin.ModelAdmin):
+    list_display = ('id','talent')
