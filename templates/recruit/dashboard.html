@@ -1,6 +1,526 @@
-{% extends 'base.html' %} {% load widget_tweaks %} 
+{% comment %} {% extends 'base.html' %} {% load widget_tweaks %} 
 {% block header %}
 <h1>一般ユーザー用のダッシュボード画面</h1>
 {% endblock %}
 {% block contents %} ここにダッシュボードのコンテンツが入る 
-{% endblock %} 
+{% endblock %}  {% endcomment %}
+
+{% load static %}
+<!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
+<!--  Last Published: Wed Feb 23 2022 07:45:13 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="619c563f2095e3975fdbf9ce" data-wf-site="617535a9a5e669803b8ca566">
+<head>
+  <meta charset="utf-8">
+  <title>Login Top</title>
+  <meta content="Login Top" property="og:title">
+  <meta content="Login Top" property="twitter:title">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="{% static 'css/normalize.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/webflow.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/sakis-template.webflow.css' %}" rel="stylesheet" type="text/css">
+  <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="{% static 'images/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
+  <link href="{% static 'images/webclip.png' %}" rel="apple-touch-icon">
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="section wf-section">
+      <div class="container gray">
+        <div>
+          <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="w-nav">
+            <div class="nav-section">
+              <div class="nav-section-left">
+                <a href="#" class="brand w-nav-brand"><img src="images/logo-2.png" loading="lazy" width="67" alt="" class="image-9"></a>
+              </div>
+              <div class="nav-section-right">
+                <div class="nav-block">
+                  <div class="nav-block-sub">
+                    <div class="nav-lavel">
+                      <a href="#" class="nav_button w-button">無料会員登録</a>
+                    </div>
+                    <div class="nav-lavel nav_lavel_small_hide">
+                      <a href="#" class="nav_button w-button">ログイン</a>
+                    </div>
+                    <div class="nav_label_small">
+                      <a href="#" class="nav_button_small w-button"></a>
+                    </div>
+                    <div class="nav_label_small">
+                      <a href="#" class="nav_button_small_logout w-button"></a>
+                    </div>
+                  </div>
+                  <nav role="navigation" class="nav-menu w-nav-menu">
+                    <a href="#" class="nav-link-2 w-nav-link">求人検索</a>
+                    <a href="#" class="nav-link-4 w-nav-link">Home</a>
+                  </nav>
+                  <div class="w-nav-button">
+                    <div class="w-icon-nav-menu"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section wf-section">
+      <div class="container">
+        <div>
+          <div class="top_main_section">
+            <div class="top_main_background_wrap">
+              <div class="top_main_left_section">
+                <div class="div-block-32">
+                  <div class="top_main_sentence_section">
+                    <div class="div-block-31">
+                      <div class="text-block-15">新<span>卒</span> <br>　　既卒</div>
+                      <div class="text-block-13">の就活サイト</div>
+                    </div>
+                    <div class="text-block-12">JOB WORLD</div>
+                    <div class="div-block-26">
+                      <div class="text-block-14"><strong class="bold-text">JOB WORLDは《最高に楽しむ就活》を理念に人材紹介会社<br>マジックワールド株式会社が運営する就職支援サービスです</strong></div>
+                    </div>
+                    <div class="top_button_section">
+                      <div class="top_button_div_left home_hide">
+                        <a href="#" class="top_main_button w-button">無料会員登録</a>
+                      </div>
+                      <div class="top_button_div_right">
+                        <a href="#" class="top_main_button w-button">求人を探す</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="top_main_right_section">
+                <div data-delay="4000" data-animation="slide" class="slider w-slider" data-autoplay="true" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="500" data-infinite="true">
+                  <div class="mask w-slider-mask">
+                    <div class="slide-2 w-slide"></div>
+                    <div class="slide w-slide"></div>
+                  </div>
+                  <div class="w-slider-arrow-left">
+                    <div class="w-icon-slider-left"></div>
+                  </div>
+                  <div class="w-slider-arrow-right">
+                    <div class="w-icon-slider-right"></div>
+                  </div>
+                  <div class="w-slider-nav w-round"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section wf-section">
+        <div class="container">
+          <div class="lp_main">
+            <div class="lp_right">
+              <div class="lp_slider_wrap">
+                <div class="lp_section_title">
+                  <div class="lp_pickup_title_text">おすすめ求人</div>
+                  <div class="lp_pickup_title_more_wrap">
+                    <a href="{% url 'recruit:item' %}" class="link-block w-inline-block">
+                      <div class="lp_pickup_title_more">もっと見る...</div>
+                    </a>
+                  </div>
+                </div>
+                <div data-delay="0" data-animation="slide" class="lp_slider w-slider" data-autoplay="true" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="2800" data-infinite="true">
+                  <div class="lp_mask w-slider-mask">
+  
+                    {% for item_feature in items_feature %}
+                    <div class="lp_slide w-slide">
+                      <div class="lp_slider_jobcard">
+                        <div class="lp_slider_up">
+                          <div class="lp_slider_image_wrap"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 44vw, (max-width: 767px) 42vw, (max-width: 991px) 29vw, 230.640625px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="lp_slider_image"></div>
+                          <div class="lp_slider_image_wrap"><img src="images/barney-yau-BbGuVc9YTaw-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 44vw, (max-width: 767px) 42vw, (max-width: 991px) 29vw, 230.640625px" srcset="images/barney-yau-BbGuVc9YTaw-unsplash-p-500.jpeg 500w, images/barney-yau-BbGuVc9YTaw-unsplash-p-800.jpeg 800w, images/barney-yau-BbGuVc9YTaw-unsplash-p-1080.jpeg 1080w, images/barney-yau-BbGuVc9YTaw-unsplash-p-1600.jpeg 1600w, images/barney-yau-BbGuVc9YTaw-unsplash-p-2000.jpeg 2000w, images/barney-yau-BbGuVc9YTaw-unsplash.jpg 4240w" alt="" class="lp_slider_image"></div>
+                          <div class="lp_slider_image_wrap searchjob_slider_image_hide"><img src="images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 29vw, 230.640625px" srcset="images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-1080.jpeg 1080w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-1600.jpeg 1600w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-2000.jpeg 2000w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-2600.jpeg 2600w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-3200.jpeg 3200w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash.jpg 4896w" alt="" class="search_job_slider_image"></div>
+                        </div>
+                        <div class="lp_slider_middle">
+                          <div class="searchjob_slider_middle_left">
+                            <div class="searchjob_slider_left_sentence">
+                              <a href="{% url 'recruit:item_detail'%}?id={{item_feature.id}}" class="text-block-23 w-inline-block">
+                                {{item_feature.name| truncatechars:47}}
+                              </a>
+                              <div class="text-block-24">{{item_feature.sub_title| default:""| truncatechars:50}}</div>
+                              <div class="text-block-24-copy">{{item_feature.sector| default:"" }}</div>
+                            </div>
+                          </div>
+                          <div class="searchjob_slider_middle_middle">
+                            <div class="search_job_slider_sentence_line"></div>
+                          </div>
+                          <div class="searchjob_slider_middle_right">
+                            <div class="searchjob_slider_right_sentence">
+                              <div class="job-search-sentence-right-div">
+                                <div class="job-search-sentence-right-label-div">
+                                  <div class="job-search-sentence-right-label">勤務地</div>
+                                </div>
+                                <div class="job-search-sentence-right-text-div">
+                                  <div class="job-search-sentence-right-text">{{item_feature.location| default:""}}</div>
+                                </div>
+                              </div>
+                              <div class="job-search-sentence-right-div">
+                                <div class="job-search-sentence-right-label-div">
+                                  <div class="job-search-sentence-right-label">年収</div>
+                                </div>
+                                <div class="job-search-sentence-right-text-div">
+                                  <div class="job-search-sentence-right-text">{{item_feature.salary| default:""}}</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="lp_slider_down w-clearfix">
+                          <input 
+                          style="border: 2px solid #333;"
+                          type="button" 
+                          name="favoriteItem" 
+                          {% if item_feature.is_favorited %}
+                            class="liked_button w-button" 
+                            value="いいね済" 
+                          {% else %}
+                            class="like_button w-button" 
+                            value="いいね！" 
+                          {% endif %} 
+                          data-item_id="{{ item_feature.id }}">
+                        </div>
+                      </div>
+                    </div> 
+                    {% endfor %}
+  
+                  <div class="left-arrow w-slider-arrow-left">
+                    <div class="icon w-icon-slider-left"></div>
+                  </div>
+                  <div class="right-arrow w-slider-arrow-right">
+                    <div class="icon-2 w-icon-slider-right"></div>
+                  </div>
+                  <div class="slide-nav w-slider-nav w-round"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="section wf-section">
+      <div class="container">
+        <div class="unmypage_middle">
+          <div class="unmypage_w">
+            <div data-current="Tab 2" data-easing="ease" data-duration-in="300" data-duration-out="100" class="tabs w-tabs">
+              <div class="tabs-menu w-tab-menu">
+                <a data-w-tab="Tab 2" class="tab-link-tab-2 w-inline-block w-tab-link w--current">
+                  <div class="unmypage_tab_icon unmypage_tab_icon_like tab_hide"></div>
+                  <div class="text-block-28">企業からのいいね</div>
+                </a>
+                <a data-w-tab="Tab 3" class="tab-link-tab-3 w-inline-block w-tab-link">
+                  <div class="unmypage_tab_icon unmypage_tab_icon_like tab_hide"></div>
+                  <div class="text-block-29">自分からのいいね</div>
+                </a>
+              </div>
+              <div class="tabs-content w-tab-content">
+                <div data-w-tab="Tab 2" class="tab-pane-tab-2 w-tab-pane w--tab-active">
+                  <div class="unmypage_tb2_wrap">
+                    <div class="searchjob_w">
+                      <div class="w-layout-grid searchjob_grid">
+                        <div class="searchjob_section">
+                          <div class="searchjob_slider_up">
+                            <div class="search_job_slider_image_wrap"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="search_job_slider_image"></div>
+                            <div class="search_job_slider_image_wrap"><img src="images/barney-yau-BbGuVc9YTaw-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/barney-yau-BbGuVc9YTaw-unsplash-p-500.jpeg 500w, images/barney-yau-BbGuVc9YTaw-unsplash-p-800.jpeg 800w, images/barney-yau-BbGuVc9YTaw-unsplash-p-1080.jpeg 1080w, images/barney-yau-BbGuVc9YTaw-unsplash-p-1600.jpeg 1600w, images/barney-yau-BbGuVc9YTaw-unsplash-p-2000.jpeg 2000w, images/barney-yau-BbGuVc9YTaw-unsplash.jpg 4240w" alt="" class="search_job_slider_image"></div>
+                            <div class="search_job_slider_image_wrap searchjob_slider_image_hide"><img src="images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, 212.34375px" srcset="images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-1080.jpeg 1080w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-1600.jpeg 1600w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-2000.jpeg 2000w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-2600.jpeg 2600w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-3200.jpeg 3200w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash.jpg 4896w" alt="" class="search_job_slider_image"></div>
+                          </div>
+                          <div class="searchjob_slider_middle">
+                            <div class="searchjob_slider_middle_left">
+                              <div class="searchjob_slider_left_sentence">
+                                <a href="#" class="text-block-23 w-inline-block">
+                                  <div class="text-block-23">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
+                                </a>
+                                <div class="text-block-24">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
+                                <div class="text-block-24-copy">企画・マーケティング</div>
+                              </div>
+                            </div>
+                            <div class="searchjob_slider_middle_middle">
+                              <div class="search_job_slider_sentence_line"></div>
+                            </div>
+                            <div class="searchjob_slider_middle_right">
+                              <div class="searchjob_slider_right_sentence">
+                                <div class="job-search-sentence-right-div">
+                                  <div class="job-search-sentence-right-label-div">
+                                    <div class="job-search-sentence-right-label">勤務地</div>
+                                  </div>
+                                  <div class="job-search-sentence-right-text-div">
+                                    <div class="job-search-sentence-right-text">東京23区</div>
+                                  </div>
+                                </div>
+                                <div class="job-search-sentence-right-div">
+                                  <div class="job-search-sentence-right-label-div">
+                                    <div class="job-search-sentence-right-label">年収</div>
+                                  </div>
+                                  <div class="job-search-sentence-right-text-div">
+                                    <div class="job-search-sentence-right-text">400〜800万</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="searchjob_slider_down">
+                            <div class="liked_button_form_block w-form">
+                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="liked_button_form"><input type="submit" value="いいね!済" data-wait="Please wait..." class="liked_button w-button"></form>
+                              <div class="w-form-done">
+                                <div>Thank you! Your submission has been received!</div>
+                              </div>
+                              <div class="w-form-fail">
+                                <div>Oops! Something went wrong while submitting the form.</div>
+                              </div>
+                            </div>
+                            <div class="like_button_form_block w-form">
+                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="like_button_form"><input type="submit" value="いいね!を送る" data-wait="Please wait..." class="like_button w-button"></form>
+                              <div class="w-form-done">
+                                <div>Thank you! Your submission has been received!</div>
+                              </div>
+                              <div class="w-form-fail">
+                                <div>Oops! Something went wrong while submitting the form.</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="searchjob_section">
+                          <div class="searchjob_slider_up">
+                            <div class="search_job_slider_image_wrap"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="search_job_slider_image"></div>
+                            <div class="search_job_slider_image_wrap"><img src="images/barney-yau-BbGuVc9YTaw-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/barney-yau-BbGuVc9YTaw-unsplash-p-500.jpeg 500w, images/barney-yau-BbGuVc9YTaw-unsplash-p-800.jpeg 800w, images/barney-yau-BbGuVc9YTaw-unsplash-p-1080.jpeg 1080w, images/barney-yau-BbGuVc9YTaw-unsplash-p-1600.jpeg 1600w, images/barney-yau-BbGuVc9YTaw-unsplash-p-2000.jpeg 2000w, images/barney-yau-BbGuVc9YTaw-unsplash.jpg 4240w" alt="" class="search_job_slider_image"></div>
+                            <div class="search_job_slider_image_wrap searchjob_slider_image_hide"><img src="images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, 212.34375px" srcset="images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-1080.jpeg 1080w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-1600.jpeg 1600w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-2000.jpeg 2000w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-2600.jpeg 2600w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-3200.jpeg 3200w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash.jpg 4896w" alt="" class="search_job_slider_image"></div>
+                          </div>
+                          <div class="searchjob_slider_middle">
+                            <div class="searchjob_slider_middle_left">
+                              <div class="searchjob_slider_left_sentence">
+                                <a href="#" class="text-block-23 w-inline-block">
+                                  <div class="text-block-23">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
+                                </a>
+                                <div class="text-block-24">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
+                                <div class="text-block-24-copy">企画・マーケティング</div>
+                              </div>
+                            </div>
+                            <div class="searchjob_slider_middle_middle">
+                              <div class="search_job_slider_sentence_line"></div>
+                            </div>
+                            <div class="searchjob_slider_middle_right">
+                              <div class="searchjob_slider_right_sentence">
+                                <div class="job-search-sentence-right-div">
+                                  <div class="job-search-sentence-right-label-div">
+                                    <div class="job-search-sentence-right-label">勤務地</div>
+                                  </div>
+                                  <div class="job-search-sentence-right-text-div">
+                                    <div class="job-search-sentence-right-text">東京23区</div>
+                                  </div>
+                                </div>
+                                <div class="job-search-sentence-right-div">
+                                  <div class="job-search-sentence-right-label-div">
+                                    <div class="job-search-sentence-right-label">年収</div>
+                                  </div>
+                                  <div class="job-search-sentence-right-text-div">
+                                    <div class="job-search-sentence-right-text">400〜800万</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="searchjob_slider_down">
+                            <div class="liked_button_form_block w-form">
+                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="liked_button_form"><input type="submit" value="いいね!済" data-wait="Please wait..." class="liked_button w-button"></form>
+                              <div class="w-form-done">
+                                <div>Thank you! Your submission has been received!</div>
+                              </div>
+                              <div class="w-form-fail">
+                                <div>Oops! Something went wrong while submitting the form.</div>
+                              </div>
+                            </div>
+                            <div class="like_button_form_block w-form">
+                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="like_button_form"><input type="submit" value="いいね!を送る" data-wait="Please wait..." class="like_button w-button"></form>
+                              <div class="w-form-done">
+                                <div>Thank you! Your submission has been received!</div>
+                              </div>
+                              <div class="w-form-fail">
+                                <div>Oops! Something went wrong while submitting the form.</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div data-w-tab="Tab 3" class="tab-pane-tab-3 w-tab-pane">
+                  <div class="unmypage_tb2_wrap">
+                    <div class="searchjob_w">
+                      <div class="w-layout-grid searchjob_grid">
+                        <div class="searchjob_section">
+                          <div class="searchjob_slider_up">
+                            <div class="search_job_slider_image_wrap"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="search_job_slider_image"></div>
+                            <div class="search_job_slider_image_wrap"><img src="images/barney-yau-BbGuVc9YTaw-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/barney-yau-BbGuVc9YTaw-unsplash-p-500.jpeg 500w, images/barney-yau-BbGuVc9YTaw-unsplash-p-800.jpeg 800w, images/barney-yau-BbGuVc9YTaw-unsplash-p-1080.jpeg 1080w, images/barney-yau-BbGuVc9YTaw-unsplash-p-1600.jpeg 1600w, images/barney-yau-BbGuVc9YTaw-unsplash-p-2000.jpeg 2000w, images/barney-yau-BbGuVc9YTaw-unsplash.jpg 4240w" alt="" class="search_job_slider_image"></div>
+                            <div class="search_job_slider_image_wrap searchjob_slider_image_hide"><img src="images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, 212.34375px" srcset="images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-1080.jpeg 1080w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-1600.jpeg 1600w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-2000.jpeg 2000w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-2600.jpeg 2600w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-3200.jpeg 3200w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash.jpg 4896w" alt="" class="search_job_slider_image"></div>
+                          </div>
+                          <div class="searchjob_slider_middle">
+                            <div class="searchjob_slider_middle_left">
+                              <div class="searchjob_slider_left_sentence">
+                                <a href="#" class="text-block-23 w-inline-block">
+                                  <div class="text-block-23">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
+                                </a>
+                                <div class="text-block-24">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
+                                <div class="text-block-24-copy">企画・マーケティング</div>
+                              </div>
+                            </div>
+                            <div class="searchjob_slider_middle_middle">
+                              <div class="search_job_slider_sentence_line"></div>
+                            </div>
+                            <div class="searchjob_slider_middle_right">
+                              <div class="searchjob_slider_right_sentence">
+                                <div class="job-search-sentence-right-div">
+                                  <div class="job-search-sentence-right-label-div">
+                                    <div class="job-search-sentence-right-label">勤務地</div>
+                                  </div>
+                                  <div class="job-search-sentence-right-text-div">
+                                    <div class="job-search-sentence-right-text">東京23区</div>
+                                  </div>
+                                </div>
+                                <div class="job-search-sentence-right-div">
+                                  <div class="job-search-sentence-right-label-div">
+                                    <div class="job-search-sentence-right-label">年収</div>
+                                  </div>
+                                  <div class="job-search-sentence-right-text-div">
+                                    <div class="job-search-sentence-right-text">400〜800万</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="searchjob_slider_down">
+                            <div class="liked_button_form_block w-form">
+                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="liked_button_form"><input type="submit" value="いいね!済" data-wait="Please wait..." class="liked_button w-button"></form>
+                              <div class="w-form-done">
+                                <div>Thank you! Your submission has been received!</div>
+                              </div>
+                              <div class="w-form-fail">
+                                <div>Oops! Something went wrong while submitting the form.</div>
+                              </div>
+                            </div>
+                            <div class="like_button_form_block w-form">
+                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="like_button_form"><input type="submit" value="いいね!を送る" data-wait="Please wait..." class="like_button w-button"></form>
+                              <div class="w-form-done">
+                                <div>Thank you! Your submission has been received!</div>
+                              </div>
+                              <div class="w-form-fail">
+                                <div>Oops! Something went wrong while submitting the form.</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="searchjob_section">
+                          <div class="searchjob_slider_up">
+                            <div class="search_job_slider_image_wrap"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="search_job_slider_image"></div>
+                            <div class="search_job_slider_image_wrap"><img src="images/barney-yau-BbGuVc9YTaw-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/barney-yau-BbGuVc9YTaw-unsplash-p-500.jpeg 500w, images/barney-yau-BbGuVc9YTaw-unsplash-p-800.jpeg 800w, images/barney-yau-BbGuVc9YTaw-unsplash-p-1080.jpeg 1080w, images/barney-yau-BbGuVc9YTaw-unsplash-p-1600.jpeg 1600w, images/barney-yau-BbGuVc9YTaw-unsplash-p-2000.jpeg 2000w, images/barney-yau-BbGuVc9YTaw-unsplash.jpg 4240w" alt="" class="search_job_slider_image"></div>
+                            <div class="search_job_slider_image_wrap searchjob_slider_image_hide"><img src="images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, 212.34375px" srcset="images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-1080.jpeg 1080w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-1600.jpeg 1600w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-2000.jpeg 2000w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-2600.jpeg 2600w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-3200.jpeg 3200w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash.jpg 4896w" alt="" class="search_job_slider_image"></div>
+                          </div>
+                          <div class="searchjob_slider_middle">
+                            <div class="searchjob_slider_middle_left">
+                              <div class="searchjob_slider_left_sentence">
+                                <a href="#" class="text-block-23 w-inline-block">
+                                  <div class="text-block-23">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
+                                </a>
+                                <div class="text-block-24">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
+                                <div class="text-block-24-copy">企画・マーケティング</div>
+                              </div>
+                            </div>
+                            <div class="searchjob_slider_middle_middle">
+                              <div class="search_job_slider_sentence_line"></div>
+                            </div>
+                            <div class="searchjob_slider_middle_right">
+                              <div class="searchjob_slider_right_sentence">
+                                <div class="job-search-sentence-right-div">
+                                  <div class="job-search-sentence-right-label-div">
+                                    <div class="job-search-sentence-right-label">勤務地</div>
+                                  </div>
+                                  <div class="job-search-sentence-right-text-div">
+                                    <div class="job-search-sentence-right-text">東京23区</div>
+                                  </div>
+                                </div>
+                                <div class="job-search-sentence-right-div">
+                                  <div class="job-search-sentence-right-label-div">
+                                    <div class="job-search-sentence-right-label">年収</div>
+                                  </div>
+                                  <div class="job-search-sentence-right-text-div">
+                                    <div class="job-search-sentence-right-text">400〜800万</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="searchjob_slider_down">
+                            <div class="liked_button_form_block w-form">
+                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="liked_button_form"><input type="submit" value="いいね!済" data-wait="Please wait..." class="liked_button w-button"></form>
+                              <div class="w-form-done">
+                                <div>Thank you! Your submission has been received!</div>
+                              </div>
+                              <div class="w-form-fail">
+                                <div>Oops! Something went wrong while submitting the form.</div>
+                              </div>
+                            </div>
+                            <div class="like_button_form_block w-form">
+                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="like_button_form"><input type="submit" value="いいね!を送る" data-wait="Please wait..." class="like_button w-button"></form>
+                              <div class="w-form-done">
+                                <div>Thank you! Your submission has been received!</div>
+                              </div>
+                              <div class="w-form-fail">
+                                <div>Oops! Something went wrong while submitting the form.</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="section wf-section">
+      <div class="container dots">
+        <div>
+          <div class="fotter-section">
+            <div class="footer-flex-container">
+              <a href="#" class="footer-logo-link"><img src="images/logo-2.png" alt="" class="footer-image"></a>
+              <div class="div-block-43">
+                <h2 class="footer-heading">Job World</h2>
+                <ul role="list" class="w-list-unstyled">
+                  <li>
+                    <a href="#" class="footer-link">運営会社</a>
+                  </li>
+                  <li>
+                    <a href="#" class="footer-link">プライバシーポリシー</a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h2 class="footer-heading">Contact</h2>
+                <div class="text-block-9">TEL:03-3367-3045</div>
+              </div>
+              <div class="div-block-16">
+                <h2 class="footer-heading">Office</h2>
+                <div class="text-block-8">〒169-0074<br>東京都新宿区北新宿1-7-20<br>プロスペリタ新宿302</div>
+              </div>
+            </div>
+            <div class="text-block-7">Copyright 2021 Magic World株式会社(マジックワールド株式会社)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=617535a9a5e669803b8ca566" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="{% static 'js/webflow.js' %}" type="text/javascript"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+</body>
+</html>

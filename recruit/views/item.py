@@ -14,7 +14,7 @@ class ItemView(TemplateView):
     template_name = f"{app_name}/item.html"
     
     def get(self, request):
-        items = ItemModel.objects.all()
+        items = ItemModel.objects.all().order_by("created_at")
         form = ItemSearchForm(request.GET)
         items = form.filter_items(items)
         item_cnt = len(items)

@@ -93,19 +93,27 @@
             保存する
         </button>
     </form> {% endcomment %}
-
-              <form id="email-form-6" name="email-form-6" data-name="Email Form 6" method="get">
+            <form name="main_form" method="POST" enctype="multipart/form-data" action="{% url 'users:edit_profile' %}">
                 <div class="useredit_top_section">
-                  <div class="useredit_top_image"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="image-7"></div>
+                  <div class="useredit_top_image">
+                  <img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="image-7">
+                  {{ form.image_top | add_class:"" }}
+                </div> 
                   <div class="w-layout-grid useredit_top_grid">
-                    <div class="unmypage_fieldlabel">ひと言PR</div><textarea placeholder="Example Text" maxlength="5000" id="field-13" name="field-13" data-name="field" class="w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f8604-a8faf690 w-input"></textarea>
-                    <div class="unmypage_fieldlabel">好きなことは？</div><textarea placeholder="Example Text" maxlength="5000" id="field-13" name="field-13" data-name="field" class="w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f8607-a8faf690 w-input"></textarea>
-                    <div class="unmypage_fieldlabel">ステータス</div><select id="field-29" name="field-29" data-name="Field 29" class="w-node-bde39480-77d2-f993-25d4-a0315a00e5c6-a8faf690 w-select">
+                    <div class="unmypage_fieldlabel">ひと言PR</div>
+                    {{ form.pr_message | attr:"placeholder:ひと言PRを入力" | add_class:"w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f8604-a8faf690 w-input" }}
+                    {% comment %} <textarea placeholder="Example Text" maxlength="5000" id="field-13" name="field-13" data-name="field" class="w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f8604-a8faf690 w-input"></textarea> {% endcomment %}
+                    <div class="unmypage_fieldlabel">好きなことは？</div>
+                    {{ form.favorite_thing | attr:"placeholder:好きなことは？" | add_class:"w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f8607-a8faf690 w-input" }}
+                    {% comment %} <textarea placeholder="Example Text" maxlength="5000" id="field-13" name="field-13" data-name="field" class="w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f8607-a8faf690 w-input"></textarea> {% endcomment %}
+                    <div class="unmypage_fieldlabel">ステータス</div>
+                    {{ form.status | attr:"placeholder:好きなことは？" | add_class:"w-node-bde39480-77d2-f993-25d4-a0315a00e5c6-a8faf690 w-select" }}
+                    {% comment %} <select id="field-29" name="field-29" data-name="Field 29" class="w-node-bde39480-77d2-f993-25d4-a0315a00e5c6-a8faf690 w-select">
                       <option value="">Select one...</option>
                       <option value="First">First choice</option>
                       <option value="Second">Second choice</option>
                       <option value="Third">Third choice</option>
-                    </select>
+                    </select> {% endcomment %}
                   </div>
                 </div>
                 <div class="useredit_line"></div>
@@ -125,33 +133,24 @@
                     <div class="useredit_title_text">基本情報</div>
                   </div>
                   <div class="w-layout-grid useredit_basic_grid">
-                    <div class="unmypage_fieldlabel"><span class="text-span-2">*</span>フルネーム（漢字）</div><input type="text" class="w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f861f-a8faf690 w-input" maxlength="256" name="field-14" data-name="Field 14" placeholder="Example Text" id="field-14" required="">
-                    <div class="unmypage_fieldlabel"><span class="text-span-2">*</span>フルネーム（かな）</div><input type="text" class="w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f8622-a8faf690 w-input" maxlength="256" name="field-14" data-name="Field 14" placeholder="Example Text" id="field-14" required="">
-                    <div class="unmypage_fieldlabel"><span class="text-span-2">*</span>現在の年齢</div><select id="field-15" name="field-15" data-name="Field 15" required="" class="w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f8625-a8faf690 w-select">
+                    <div class="unmypage_fieldlabel"><span class="text-span-2">*</span>フルネーム（漢字）</div>
+                    {{ form.name_kanji | attr:"placeholder:好きなことは？" | add_class:"w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f861f-a8faf690 w-input" }}
+                    <div class="unmypage_fieldlabel"><span class="text-span-2">*</span>フルネーム（かな）</div>
+                    {{ form.name_kana | attr:"placeholder:好きなことは？" | add_class:"w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f8622-a8faf690 w-input" }}
+                    <div class="unmypage_fieldlabel"><span class="text-span-2">*</span>生年月日</div>
+                    {{ form.birthdate | attr:"" | add_class:"" }}
+                    <div class="unmypage_fieldlabel"><span class="text-span-2">*</span>性別</div>
+                    {{ form.gender | attr:"placeholder:性別を選択" | add_class:"w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f8628-a8faf690 w-select" }}
+                    {% comment %} <div class="unmypage_fieldlabel"><span class="text-span-2">*</span>住まい（都道府県）</div>
+                    <select id="field-17" name="field-17" data-name="Field 17" required="" class="w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f862b-a8faf690 w-select">
                       <option value="">Select one...</option>
                       <option value="First">First choice</option>
                       <option value="Second">Second choice</option>
                       <option value="Third">Third choice</option>
-                    </select>
-                    <div class="unmypage_fieldlabel"><span class="text-span-2">*</span>性別</div><select id="field-16" name="field-16" data-name="Field 16" required="" class="w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f8628-a8faf690 w-select">
-                      <option value="">Select one...</option>
-                      <option value="First">First choice</option>
-                      <option value="Second">Second choice</option>
-                      <option value="Third">Third choice</option>
-                    </select>
-                    <div class="unmypage_fieldlabel"><span class="text-span-2">*</span>住まい（都道府県）</div><select id="field-17" name="field-17" data-name="Field 17" required="" class="w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f862b-a8faf690 w-select">
-                      <option value="">Select one...</option>
-                      <option value="First">First choice</option>
-                      <option value="Second">Second choice</option>
-                      <option value="Third">Third choice</option>
-                    </select>
-                    <div class="unmypage_fieldlabel"><span class="text-span-2">*</span>現在の職業</div><select id="field-18" name="field-18" data-name="Field 18" required="" class="w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f862e-a8faf690 w-select">
-                      <option value="">Select one...</option>
-                      <option value="First">First choice</option>
-                      <option value="Second">Second choice</option>
-                      <option value="Third">Third choice</option>
-                    </select>
-                    <div class="unmypage_fieldlabel"><span class="text-span-2">*</span>メールアドレス</div><input type="email" class="w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f8631-a8faf690 w-input" maxlength="256" name="field-14" data-name="Field 14" placeholder="Example Text" id="field-14" required="">
+                    </select> {% endcomment %}
+                    <div class="unmypage_fieldlabel"><span class="text-span-2">*</span>現在の職業</div>
+                    {{ form.currently_job | attr:"placeholder:業種、職種など" | add_class:"w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f8622-a8faf690 w-input" }}
+                    {% comment %} <div class="unmypage_fieldlabel"><span class="text-span-2">*</span>メールアドレス</div><input type="email" class="w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f8631-a8faf690 w-input" maxlength="256" name="field-14" data-name="Field 14" placeholder="Example Text" id="field-14" required=""> {% endcomment %}
                     <div class="unmypage_fieldlabel"><span class="text-span-2">*</span>電話番号</div><input type="tel" class="w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f8634-a8faf690 w-input" maxlength="256" name="field-14" data-name="Field 14" placeholder="Example Text" id="field-14" required="">
                   </div>
                 </div>

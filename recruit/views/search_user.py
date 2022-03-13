@@ -5,26 +5,47 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from ..models import ItemModel, UserFavoriteItemModel
 from ..forms.item import ItemSearchForm
+from users.models import NormalUser
 
 
 app_name = "recruit"
 
 class SearchUserView(TemplateView):
     template_name = f"{app_name}/search_user.html"
+
+    def get(self, request):
+        normal_users = NormalUser.objects.all()
     
+        return  self.render_to_response({
+            "normal_users":normal_users,
+        })  
+     
     # def get(self, request):
-    #     items = ItemModel.objects.all()
+    #     items = NormalUser.objects.all().order_by("created_at")
     #     form = ItemSearchForm(request.GET)
     #     items = form.filter_items(items)
     #     item_cnt = len(items)
-        
-    #     favorite_items = UserFavoriteItemModel.objects.filter(user=request.user).all()
+          
     #     for item in items:
     #         item.is_favorited = False
-    #         for favorite_item in favorite_items:
-    #             if item.id == favorite_item.item_id:
-    #                 item.is_favorited = True
-    #                 break
+    #         if self.request.user.is_authenticated:
+    #             if request.user.user_type == USER_TYPE.NORMAL_USER:
+    #                 favorite_items = UserFavoriteItemModel.objects.filter(user=request.user).all()
+    #                 for favorite_item in favorite_items:
+    #                     if item.id == favorite_item.item_id:
+    #                         item.is_favorited = True
+    #                         break
+
+    #     items_feature = ItemModel.objects.filter(feature_flag=1)
+    #     for item in items_feature:
+    #         item.is_favorited = False
+    #         if self.request.user.is_authenticated:
+    #             if request.user.user_type == USER_TYPE.NORMAL_USER:
+    #                 favorite_items = UserFavoriteItemModel.objects.filter(user=request.user).all()
+    #                 for favorite_item in favorite_items:
+    #                     if item.id == favorite_item.item_id:
+    #                         item.is_favorited = True
+    #                         break
   
     #     params = request.GET.copy()
     #     if 'page' in params:
@@ -44,5 +65,6 @@ class SearchUserView(TemplateView):
     #         "items":items,
     #         "item_cnt":item_cnt,
     #         "form":form,
-    #         "search_params":search_params
+    #         "search_params":search_params,
+    #         "items_feature":items_feature
     #     })
