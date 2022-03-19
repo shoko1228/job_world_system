@@ -8,7 +8,7 @@ from django.core.mail import send_mail
 import ulid
 from django.core.validators import RegexValidator
 
-
+from common.models import *
 from app.const import USER_TYPE
 
 class CustomUserManager(UserManager):
@@ -51,25 +51,25 @@ class CustomUserManager(UserManager):
 
         return self._create_user(email, password, **extra_fields)
     
-class LocationUserModel(models.Model):
-    location = models.CharField(verbose_name="都道府県",max_length=64, null=False, blank=False)
-    class Meta:
-        db_table = "location_user"
-        verbose_name = "都道府県"
-        verbose_name_plural = "都道府県"
+# class LocationUserModel(models.Model):
+#     location = models.CharField(verbose_name="都道府県",max_length=64, null=False, blank=False)
+#     class Meta:
+#         db_table = "location_user"
+#         verbose_name = "都道府県"
+#         verbose_name_plural = "都道府県"
     
-    def __str__(self):
-        return self.location
+#     def __str__(self):
+#         return self.location
 
-class JobTypeModel(models.Model):
-    job_type = models.CharField(verbose_name="職種",max_length=64, null=False, blank=False)
-    class Meta:
-        db_table = "job_type"
-        verbose_name = "職種"
-        verbose_name_plural = "職種"
+# class JobTypeModel(models.Model):
+#     job_type = models.CharField(verbose_name="職種",max_length=64, null=False, blank=False)
+#     class Meta:
+#         db_table = "job_type"
+#         verbose_name = "職種"
+#         verbose_name_plural = "職種"
     
-    def __str__(self):
-        return self.job_type
+#     def __str__(self):
+#         return self.job_type
 
 class NormalUser(models.Model):
     id = models.CharField(max_length=32, default=ulid.new, primary_key=True, editable=False) 
@@ -93,22 +93,26 @@ class NormalUser(models.Model):
     name_kana= models.CharField(_('フルネーム（かな）'), max_length=32, null=True, blank=True)
     birthdate = models.DateTimeField(_('生年月日'), null=True, blank=True)
     gender = models.IntegerField(_('性別'), null=True, blank=True)
-    #address = models.ForeignKey(LocationUserModel, verbose_name="住まい（都道府県）", null=False, blank=False, on_delete=models.SET_DEFAULT, default=1 )
+    address = models.ForeignKey(LocationModel, verbose_name="住まい（都道府県）", null=True, blank=True, on_delete=models.SET_DEFAULT, default=1,related_name="user_location"  )
     currently_job= models.CharField(_('現在の職業'), max_length=100, null=True, blank=True)
     phoneNumberRegex = RegexValidator(regex = r"^\+?1?\d{8,15}$")
-    #phoneNumber = models.CharField(validators = [phoneNumberRegex], max_length = 16, unique = True)
-    education_year = models.DateTimeField(_('学歴_年'), null=True, blank=True)
+    phoneNumber = models.CharField(validators = [phoneNumberRegex], max_length = 16)
+    education_year = models.IntegerField(_('学歴_年'), null=True, blank=True)
+    education_month = models.IntegerField(_('学歴_月'), null=True, blank=True)
     education_status = models.IntegerField(_('学歴_ステータス'), blank=True, default=0)
     school_name = models.CharField(_('学校名'), max_length=32, null=True, blank=True)
     school_type = models.IntegerField(_('学歴_学校種類'), blank=True, default=0)
     school_department = models.CharField(_('学部名'), max_length=32, null=True, blank=True)
-    location1 = models.ForeignKey(LocationUserModel, verbose_name="希望勤務地1", null=True, blank=True, on_delete=models.SET_DEFAULT, default=1, related_name="location1" )
-    location2 = models.ForeignKey(LocationUserModel, verbose_name="希望勤務地2", null=True, blank=True, on_delete=models.SET_DEFAULT, default=1, related_name="location2")
-    location3 = models.ForeignKey(LocationUserModel, verbose_name="希望勤務地3", null=True, blank=True, on_delete=models.SET_DEFAULT, default=1, related_name="location3")
-    change_job_time = models.DateTimeField(_('希望入社時期'), null=True, blank=True)
-    job_experience1 = models.ForeignKey(JobTypeModel, verbose_name="経験職種1", null=True, blank=True, on_delete=models.SET_DEFAULT, default=1, related_name="job_experience1"  )
-    job_experience2 = models.ForeignKey(JobTypeModel, verbose_name="経験職種2", null=True, blank=True, on_delete=models.SET_DEFAULT, default=1, related_name="job_experience2"  )
-    job_experience3 = models.ForeignKey(JobTypeModel, verbose_name="経験職種3", null=True, blank=True, on_delete=models.SET_DEFAULT, default=1, related_name="job_experience3"  )
+    location1 = models.ForeignKey(LocationModel, verbose_name="希望勤務地1", null=True, blank=True, on_delete=models.SET_DEFAULT, default=1, related_name="location1" )
+    location2 = models.ForeignKey(LocationModel, verbose_name="希望勤務地2", null=True, blank=True, on_delete=models.SET_DEFAULT, default=1, related_name="location2")
+    location3 = models.ForeignKey(LocationModel, verbose_name="希望勤務地3", null=True, blank=True, on_delete=models.SET_DEFAULT, default=1, related_name="location3")
+    change_job_time = models.CharField(_('希望入社時期'), max_length=100, null=True, blank=True)
+    job_experience1 = models.ForeignKey(SectorModel, verbose_name="経験職種1", null=True, blank=True, on_delete=models.SET_DEFAULT, default=1, related_name="job_experience1"  )
+    job_experience2 = models.ForeignKey(SectorModel, verbose_name="経験職種2", null=True, blank=True, on_delete=models.SET_DEFAULT, default=1, related_name="job_experience2"  )
+    job_experience3 = models.ForeignKey(SectorModel, verbose_name="経験職種3", null=True, blank=True, on_delete=models.SET_DEFAULT, default=1, related_name="job_experience3"  )
+    job_experience_year1 = models.IntegerField(_('経験年数1'), blank=True, default=0)
+    job_experience_year2 = models.IntegerField(_('経験年数2'), blank=True, default=0)
+    job_experience_year3 = models.IntegerField(_('経験年数3'), blank=True, default=0)
 
 
     

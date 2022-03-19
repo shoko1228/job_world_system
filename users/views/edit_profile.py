@@ -18,7 +18,7 @@ class EditProfileView(TemplateView):
     def get(self, request):
         if not request.user.user_type == USER_TYPE.NORMAL_USER:
             raise Http404("企業アカウントは、このページは表示できません")
-        print(request.user.normal_user)
+        
         form = NormalUserForm(instance=request.user.normal_user)
         return self.render_to_response({"form": form})
     

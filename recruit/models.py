@@ -1,48 +1,49 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from users.models import *
+from common.models import *
 import ulid
 
-class LocationModel(models.Model):
-    location = models.CharField(verbose_name="地域",max_length=64, null=False, blank=False)
-    class Meta:
-        db_table = "location"
-        verbose_name = "地域"
-        verbose_name_plural = "地域"
+# class LocationModel(models.Model):
+#     location = models.CharField(verbose_name="地域",max_length=64, null=False, blank=False)
+#     class Meta:
+#         db_table = "location"
+#         verbose_name = "地域"
+#         verbose_name_plural = "地域"
     
-    def __str__(self):
-        return self.location
+#     def __str__(self):
+#         return self.location
 
 
-class IndustryModel(models.Model):
-    industry = models.CharField(verbose_name="業界",max_length=64, null=False, blank=False)
-    class Meta:
-        db_table = "industry"
-        verbose_name = "業界"
-        verbose_name_plural = "業界"
+# class IndustryModel(models.Model):
+#     industry = models.CharField(verbose_name="業界",max_length=64, null=False, blank=False)
+#     class Meta:
+#         db_table = "industry"
+#         verbose_name = "業界"
+#         verbose_name_plural = "業界"
     
-    def __str__(self):
-        return self.industry
+#     def __str__(self):
+#         return self.industry
 
-class SectorModel(models.Model):
-    sector = models.CharField(verbose_name="業種",max_length=64, null=False, blank=False)
-    class Meta:
-        db_table = "sector"
-        verbose_name = "業種"
-        verbose_name_plural = "業種"
+# class SectorModel(models.Model):
+#     sector = models.CharField(verbose_name="業種",max_length=64, null=False, blank=False)
+#     class Meta:
+#         db_table = "sector"
+#         verbose_name = "業種"
+#         verbose_name_plural = "業種"
     
-    def __str__(self):
-        return self.sector
+#     def __str__(self):
+#         return self.sector
 
-class WantedTalentModel(models.Model):
-    talent = models.CharField(verbose_name="人材条件",max_length=64, null=False, blank=False)
-    class Meta:
-        db_table = "WantedTalent"
-        verbose_name = "人材条件"
-        verbose_name_plural = "人材条件"
+# class WantedTalentModel(models.Model):
+#     talent = models.CharField(verbose_name="人材条件",max_length=64, null=False, blank=False)
+#     class Meta:
+#         db_table = "WantedTalent"
+#         verbose_name = "人材条件"
+#         verbose_name_plural = "人材条件"
     
-    def __str__(self):
-        return self.talent
+#     def __str__(self):
+#         return self.talent
 
 
 class ItemModel(models.Model):
@@ -60,7 +61,6 @@ class ItemModel(models.Model):
     working_hours = models.CharField(verbose_name="勤務時間",max_length=125, null=True, blank=True)
     holidays = models.CharField(verbose_name="休日・休暇",max_length=256, null=True, blank=True)
     welfare = models.TextField(verbose_name="待遇・福利厚生", null=True, blank=True)
-    #写真
     image1 = models.ImageField(verbose_name="画像1", upload_to='images',null=True, blank=True, default='images/default.jpeg')
     image2 = models.ImageField(verbose_name="画像2", upload_to='images',null=True, blank=True, default='images/default.jpeg')
     image3 = models.ImageField(verbose_name="画像3", upload_to='images',null=True, blank=True, default='images/default.jpeg')
