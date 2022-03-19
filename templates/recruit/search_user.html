@@ -1,7 +1,6 @@
-{% comment %} <p>求職者検索画面</p> {% endcomment %}
 {% load static %}
 <!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
-<!--  Last Published: Fri Jan 28 2022 10:36:24 GMT+0000 (Coordinated Universal Time)  -->
+<!--  Last Published: Wed Feb 23 2022 07:45:13 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="61e158a59b0fff145a26ff84" data-wf-site="617535a9a5e669803b8ca566">
 <head>
   <meta charset="utf-8">
@@ -134,49 +133,51 @@
               <div class="lp_middle">
                 <div class="searchuser_w">
                   <div class="lp_pickup_title">
-                    <div class="lp_pickup_title_text">求職者一覧　X件</div>
+                    <div class="lp_pickup_title_text">求職者一覧　{{ user_cnt }}件</div>
                   </div>
                   <div class="w-layout-grid searchjob_grid">
+
+                    {% for normal_user in normal_users %}
                     <div id="w-node-a0d66eab-149d-fb32-4679-f48c8d02872d-5a26ff84" class="searchuser_card">
                       <div class="searchuser_up">
                         <div class="searchuser_up_left_wrap">
                           <div class="searchuser_image_wrap"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" width="100" alt="" class="image-8"></div>
                           <div class="searchuser_up_left">
                             <div class="searchuser_left_pr_div">
-                              <div class="searchuser_pr">医療機器メーカーで営業、IT業界でマーケティングの経験があります！</div>
+                              <div class="searchuser_pr">{{normal_user.pr_message}}</div>
                               <div class="div-block-71">
                                 <div class="searchuser_hobby">好きなことは？</div>
-                                <div class="searchuser_hobby_text">K-POP</div>
+                                <div class="searchuser_hobby_text">{{normal_user.favorite_thing}}</div>
                               </div>
                             </div>
                             <div class="searchuser_left_div">
                               <div class="serchuser_sector_div">
-                                <div class="searchuser_left_label">営業</div>
-                                <div class="searchuser_left_text">3年</div>
+                                <div class="searchuser_left_label">{{normal_user.job_experience1}}</div>
+                                <div class="searchuser_left_text">{{normal_user.job_experience_year1}} 年</div>
                               </div>
                               <div class="serchuser_sector_div">
-                                <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                                <div class="searchuser_left_text">3年</div>
+                                <div class="searchuser_left_label">{{normal_user.job_experience2}}</div>
+                                <div class="searchuser_left_text">{{normal_user.job_experience_year2}} 年</div>
                               </div>
                               <div class="serchuser_sector_div">
-                                <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                                <div class="searchuser_left_text">3年</div>
+                                <div class="searchuser_left_label">{{normal_user.job_experience3}}</div>
+                                <div class="searchuser_left_text">{{normal_user.job_experience_year3}} 年</div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div class="searchuser_left_div_hide2">
                           <div class="serchuser_sector_div">
-                            <div class="searchuser_left_label">営業</div>
-                            <div class="searchuser_left_text">3年</div>
+                            <div class="searchuser_left_label">{{normal_user.job_experience1}}</div>
+                            <div class="searchuser_left_text">{{normal_user.job_experience_year1}} 年</div>
                           </div>
                           <div class="serchuser_sector_div">
-                            <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                            <div class="searchuser_left_text">3年</div>
+                            <div class="searchuser_left_label">{{normal_user.job_experience2}}</div>
+                            <div class="searchuser_left_text">{{normal_user.job_experience_year2}} 年</div>
                           </div>
                           <div class="serchuser_sector_div">
-                            <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                            <div class="searchuser_left_text">3年</div>
+                            <div class="searchuser_left_label">{{normal_user.job_experience3}}</div>
+                            <div class="searchuser_left_text">{{normal_user.job_experience_year3}} 年</div>
                           </div>
                         </div>
                         <div class="searchuser_up_line_wrap">
@@ -189,7 +190,7 @@
                                 <div class="searchuser_right_label">最終学歴</div>
                               </div>
                               <div class="searchuser_right_text_wrap">
-                                <div class="searchuser_rigth_text">大学卒</div>
+                                <div class="searchuser_rigth_text">{{normal_user.education_status}}</div>
                               </div>
                             </div>
                             <div class="searchuser_right_div">
@@ -197,7 +198,7 @@
                                 <div class="searchuser_right_label">希望の入社時期</div>
                               </div>
                               <div class="searchuser_right_text_wrap">
-                                <div class="searchuser_rigth_text">3ヶ月以内</div>
+                                <div class="searchuser_rigth_text">{{normal_user.change_job_time}}</div>
                               </div>
                             </div>
                             <div class="searchuser_right_div">
@@ -205,9 +206,9 @@
                                 <div class="searchuser_right_label">希望の勤務地</div>
                               </div>
                               <div class="searchuser_right_text_wrap">
-                                <div class="searchuser_rigth_text">東京23区</div>
-                                <div class="searchuser_rigth_text">東京23区外</div>
-                                <div class="searchuser_rigth_text">大阪</div>
+                                <div class="searchuser_rigth_text">{{normal_user.location1}}</div>
+                                <div class="searchuser_rigth_text">{{normal_user.location2}}</div>
+                                <div class="searchuser_rigth_text">{{normal_user.location3}}</div>
                               </div>
                             </div>
                           </div>
@@ -239,6 +240,8 @@
                         </div>
                       </div>
                     </div>
+                    {% endfor %}
+{% comment %}                     
                     <div id="w-node-_47ace173-fb14-3b83-f025-f0b08e258825-5a26ff84" class="searchuser_card">
                       <div class="searchuser_up">
                         <div class="searchuser_up_left_wrap">
@@ -340,7 +343,8 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> {% endcomment %}
+                  
                   </div>
                 </div>
               </div>
@@ -349,6 +353,7 @@
         </div>
       </div>
     </div>
+
     <div class="section wf-section">
       <div class="container dots">
         <div>

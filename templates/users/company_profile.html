@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
-<!--  Last Published: Fri Jan 28 2022 10:36:24 GMT+0000 (Coordinated Universal Time)  -->
+<!--  Last Published: Wed Feb 23 2022 07:45:13 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="618e4f165f00230e98d08adf" data-wf-site="617535a9a5e669803b8ca566">
 <head>
   <meta charset="utf-8">
@@ -15,6 +15,7 @@
   <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
   <link href="{% static 'images/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
+  <link href="{% static 'images/webclip.png' %}" rel="apple-touch-icon">
 </head>
 <body>
   <div class="page-wrapper">
@@ -24,7 +25,7 @@
           <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="w-nav">
             <div class="nav-section">
               <div class="nav-section-left">
-                <a href="#" class="brand w-nav-brand"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" width="67" alt=""></a>
+                <a href="#" class="brand w-nav-brand"><img src="images/logo-2.png" loading="lazy" width="67" alt=""></a>
               </div>
               <div class="nav-section-right">
                 <div class="nav-block">
@@ -38,10 +39,12 @@
                     <div class="nav_label_small">
                       <a href="#" class="nav_button_small w-button"></a>
                     </div>
+                    <div class="nav_label_small">
+                      <a href="#" class="nav_button_small_logout w-button"></a>
+                    </div>
                   </div>
                   <nav role="navigation" class="nav-menu w-nav-menu">
                     <a href="#" class="nav-link-2 w-nav-link">求人検索</a>
-                    <a href="#" class="nav-link-3 w-nav-link">よくある質問</a>
                     <a href="#" class="nav-link-4 w-nav-link">Home</a>
                   </nav>
                   <div class="w-nav-button">
@@ -56,18 +59,21 @@
     </div>
     <div class="section wf-section">
       <div class="container">
-        <div class="uccmypage_middle">
+        <div class="unmypage_middle">
           <div class="unmypage_w">
             <div data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100" class="tabs w-tabs">
               <div class="tabs-menu w-tab-menu">
                 <a data-w-tab="Tab 1" class="tab-link-tab-1 w-inline-block w-tab-link w--current">
-                  <div>企業窓口情報</div>
+                  <div class="unmypage_tab_icon tab_hide"></div>
+                  <div class="text-block-27">プロフィール</div>
                 </a>
                 <a data-w-tab="Tab 2" class="tab-link-tab-2 w-inline-block w-tab-link">
-                  <div>求職者からのいいね</div>
+                  <div class="unmypage_tab_icon unmypage_tab_icon_like tab_hide"></div>
+                  <div class="text-block-28">求職者からのいいね</div>
                 </a>
                 <a data-w-tab="Tab 3" class="tab-link-tab-3 w-inline-block w-tab-link">
-                  <div>自社からのいいね</div>
+                  <div class="unmypage_tab_icon unmypage_tab_icon_like tab_hide"></div>
+                  <div class="text-block-29">自社からのいいね</div>
                 </a>
               </div>
               <div class="tabs-content w-tab-content">
@@ -77,18 +83,16 @@
                       <div class="useredit_title_text">ご担当者様情報</div>
                     </div>
                     <div class="w-layout-grid useredit_basic_grid-copy">
+                      <div class="unmypage_fieldlabel">会社名</div>
+                      <div class="unmypage_textfield">{{ company_user.company_name }}</div>
                       <div class="unmypage_fieldlabel">フルネーム（漢字）</div>
                       <div class="unmypage_textfield">This is </div>
-                      <div class="div-block-70"></div>
                       <div class="unmypage_fieldlabel">フルネーム（かな）</div>
                       <div class="unmypage_textfield">This is some text inside of </div>
-                      <div class="div-block-70"></div>
                       <div class="unmypage_fieldlabel">所在地（都道府県）</div>
                       <div class="unmypage_textfield">This is s</div>
-                      <div class="div-block-70"></div>
                       <div class="unmypage_fieldlabel">メールアドレス</div>
                       <div class="unmypage_textfield">This is some text inside of a</div>
-                      <div class="div-block-70"></div>
                       <div class="unmypage_fieldlabel">電話番号</div>
                       <div class="unmypage_textfield">This is some text inside </div>
                       <div class="div-block-70"></div>
@@ -96,122 +100,424 @@
                   </div>
                 </div>
                 <div data-w-tab="Tab 2" class="tab-pane-tab-2 w-tab-pane">
-                  <div class="top_pickup_job_section user_mypage_tab_padding">
-                    <div class="w-layout-grid grid-2">
-                      <div class="searchjob_jobcard">
-                        <div class="lp_jobcard_image_wrap"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="lp_jobcard_image"></div>
-                        <div class="lp_jobcard_icon_wrap">
-                          <a href="#" class="lp_jobcard_icon w-button"></a>
+                  <div class="unmypage_tb2_wrap">
+                    <div class="searchjob_w">
+                      <div class="w-layout-grid searchjob_grid">
+                        <div id="w-node-_90067003-8540-014a-cf9c-70d8ec384c36-98d08adf" class="searchuser_card">
+                          <div class="searchuser_up">
+                            <div class="searchuser_up_left_wrap">
+                              <div class="searchuser_image_wrap"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" width="100" alt="" class="image-8"></div>
+                              <div class="searchuser_up_left">
+                                <div class="searchuser_left_pr_div">
+                                  <div class="searchuser_pr">医療機器メーカーで営業、IT業界でマーケティングの経験があります！</div>
+                                  <div class="div-block-71">
+                                    <div class="searchuser_hobby">好きなことは？</div>
+                                    <div class="searchuser_hobby_text">K-POP</div>
+                                  </div>
+                                </div>
+                                <div class="searchuser_left_div">
+                                  <div class="serchuser_sector_div">
+                                    <div class="searchuser_left_label">営業</div>
+                                    <div class="searchuser_left_text">3年</div>
+                                  </div>
+                                  <div class="serchuser_sector_div">
+                                    <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
+                                    <div class="searchuser_left_text">3年</div>
+                                  </div>
+                                  <div class="serchuser_sector_div">
+                                    <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
+                                    <div class="searchuser_left_text">3年</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="searchuser_left_div_hide2">
+                              <div class="serchuser_sector_div">
+                                <div class="searchuser_left_label">営業</div>
+                                <div class="searchuser_left_text">3年</div>
+                              </div>
+                              <div class="serchuser_sector_div">
+                                <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
+                                <div class="searchuser_left_text">3年</div>
+                              </div>
+                              <div class="serchuser_sector_div">
+                                <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
+                                <div class="searchuser_left_text">3年</div>
+                              </div>
+                            </div>
+                            <div class="searchuser_up_line_wrap">
+                              <div class="searchuser_up_line"></div>
+                            </div>
+                            <div class="searchuser_up_right">
+                              <div class="searchuser_right">
+                                <div class="searchuser_right_div">
+                                  <div class="searchuser_right_label_wrap">
+                                    <div class="searchuser_right_label">最終学歴</div>
+                                  </div>
+                                  <div class="searchuser_right_text_wrap">
+                                    <div class="searchuser_rigth_text">大学卒</div>
+                                  </div>
+                                </div>
+                                <div class="searchuser_right_div">
+                                  <div class="searchuser_right_label_wrap">
+                                    <div class="searchuser_right_label">希望の入社時期</div>
+                                  </div>
+                                  <div class="searchuser_right_text_wrap">
+                                    <div class="searchuser_rigth_text">3ヶ月以内</div>
+                                  </div>
+                                </div>
+                                <div class="searchuser_right_div">
+                                  <div class="searchuser_right_label_wrap">
+                                    <div class="searchuser_right_label">希望の勤務地</div>
+                                  </div>
+                                  <div class="searchuser_right_text_wrap">
+                                    <div class="searchuser_rigth_text">東京23区</div>
+                                    <div class="searchuser_rigth_text">東京23区外</div>
+                                    <div class="searchuser_rigth_text">大阪</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="searchuser_images">
+                            <div class="searchuser_images_wrap"><img src="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1080.jpeg 1080w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1600.jpeg 1600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2000.jpeg 2000w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2600.jpeg 2600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-3200.jpeg 3200w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg 5184w" alt="" class="searchuser_image"></div>
+                            <div class="searchuser_images_wrap"><img src="images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-500.jpeg 500w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-800.jpeg 800w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1080.jpeg 1080w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1600.jpeg 1600w, images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg 4256w" alt="" class="searchuser_image"></div>
+                            <div class="searchuser_images_wrap_hide"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, 212.34375px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="searchuser_image"></div>
+                          </div>
+                          <div class="searchuser_down">
+                            <div class="liked_button_form_block w-form">
+                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="liked_button_form"><input type="submit" value="いいね!済" data-wait="Please wait..." class="liked_button w-button"></form>
+                              <div class="w-form-done">
+                                <div>Thank you! Your submission has been received!</div>
+                              </div>
+                              <div class="w-form-fail">
+                                <div>Oops! Something went wrong while submitting the form.</div>
+                              </div>
+                            </div>
+                            <div class="like_button_form_block w-form">
+                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="like_button_form"><input type="submit" value="いいね!を送る" data-wait="Please wait..." class="like_button w-button"></form>
+                              <div class="w-form-done">
+                                <div>Thank you! Your submission has been received!</div>
+                              </div>
+                              <div class="w-form-fail">
+                                <div>Oops! Something went wrong while submitting the form.</div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <div class="lp_jobcard_sentence">
-                          <div class="lp_jobcard_title">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
-                          <div class="lp_jobcard_label">400万〜600万</div>
-                          <div class="lp_jobcard_label">東京23区</div>
-                        </div>
-                      </div>
-                      <div class="searchjob_jobcard">
-                        <div class="lp_jobcard_image_wrap"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="lp_jobcard_image"></div>
-                        <div class="lp_jobcard_icon_wrap">
-                          <a href="#" class="lp_jobcard_icon w-button"></a>
-                        </div>
-                        <div class="lp_jobcard_sentence">
-                          <div class="lp_jobcard_title">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
-                          <div class="lp_jobcard_label">400万〜600万</div>
-                          <div class="lp_jobcard_label">東京23区</div>
-                        </div>
-                      </div>
-                      <div class="searchjob_jobcard">
-                        <div class="lp_jobcard_image_wrap"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="lp_jobcard_image"></div>
-                        <div class="lp_jobcard_icon_wrap">
-                          <a href="#" class="lp_jobcard_icon w-button"></a>
-                        </div>
-                        <div class="lp_jobcard_sentence">
-                          <div class="lp_jobcard_title">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
-                          <div class="lp_jobcard_label">400万〜600万</div>
-                          <div class="lp_jobcard_label">東京23区</div>
-                        </div>
-                      </div>
-                      <div class="searchjob_jobcard">
-                        <div class="lp_jobcard_image_wrap"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="lp_jobcard_image"></div>
-                        <div class="lp_jobcard_icon_wrap">
-                          <a href="#" class="lp_jobcard_icon w-button"></a>
-                        </div>
-                        <div class="lp_jobcard_sentence">
-                          <div class="lp_jobcard_title">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
-                          <div class="lp_jobcard_label">400万〜600万</div>
-                          <div class="lp_jobcard_label">東京23区</div>
-                        </div>
-                      </div>
-                      <div class="searchjob_jobcard">
-                        <div class="lp_jobcard_image_wrap"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="lp_jobcard_image"></div>
-                        <div class="lp_jobcard_icon_wrap">
-                          <a href="#" class="lp_jobcard_icon w-button"></a>
-                        </div>
-                        <div class="lp_jobcard_sentence">
-                          <div class="lp_jobcard_title">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
-                          <div class="lp_jobcard_label">400万〜600万</div>
-                          <div class="lp_jobcard_label">東京23区</div>
+                        <div id="w-node-_5cf86b6f-cda3-cf03-0310-ceca7da7932e-98d08adf" class="searchuser_card">
+                          <div class="searchuser_up">
+                            <div class="searchuser_up_left_wrap">
+                              <div class="searchuser_image_wrap"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" width="100" alt="" class="image-8"></div>
+                              <div class="searchuser_up_left">
+                                <div class="searchuser_left_pr_div">
+                                  <div class="searchuser_pr">医療機器メーカーで営業、IT業界でマーケティングの経験があります！</div>
+                                  <div class="div-block-71">
+                                    <div class="searchuser_hobby">好きなことは？</div>
+                                    <div class="searchuser_hobby_text">K-POP</div>
+                                  </div>
+                                </div>
+                                <div class="searchuser_left_div">
+                                  <div class="serchuser_sector_div">
+                                    <div class="searchuser_left_label">営業</div>
+                                    <div class="searchuser_left_text">3年</div>
+                                  </div>
+                                  <div class="serchuser_sector_div">
+                                    <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
+                                    <div class="searchuser_left_text">3年</div>
+                                  </div>
+                                  <div class="serchuser_sector_div">
+                                    <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
+                                    <div class="searchuser_left_text">3年</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="searchuser_left_div_hide2">
+                              <div class="serchuser_sector_div">
+                                <div class="searchuser_left_label">営業</div>
+                                <div class="searchuser_left_text">3年</div>
+                              </div>
+                              <div class="serchuser_sector_div">
+                                <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
+                                <div class="searchuser_left_text">3年</div>
+                              </div>
+                              <div class="serchuser_sector_div">
+                                <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
+                                <div class="searchuser_left_text">3年</div>
+                              </div>
+                            </div>
+                            <div class="searchuser_up_line_wrap">
+                              <div class="searchuser_up_line"></div>
+                            </div>
+                            <div class="searchuser_up_right">
+                              <div class="searchuser_right">
+                                <div class="searchuser_right_div">
+                                  <div class="searchuser_right_label_wrap">
+                                    <div class="searchuser_right_label">最終学歴</div>
+                                  </div>
+                                  <div class="searchuser_right_text_wrap">
+                                    <div class="searchuser_rigth_text">大学卒</div>
+                                  </div>
+                                </div>
+                                <div class="searchuser_right_div">
+                                  <div class="searchuser_right_label_wrap">
+                                    <div class="searchuser_right_label">希望の入社時期</div>
+                                  </div>
+                                  <div class="searchuser_right_text_wrap">
+                                    <div class="searchuser_rigth_text">3ヶ月以内</div>
+                                  </div>
+                                </div>
+                                <div class="searchuser_right_div">
+                                  <div class="searchuser_right_label_wrap">
+                                    <div class="searchuser_right_label">希望の勤務地</div>
+                                  </div>
+                                  <div class="searchuser_right_text_wrap">
+                                    <div class="searchuser_rigth_text">東京23区</div>
+                                    <div class="searchuser_rigth_text">東京23区外</div>
+                                    <div class="searchuser_rigth_text">大阪</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="searchuser_images">
+                            <div class="searchuser_images_wrap"><img src="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1080.jpeg 1080w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1600.jpeg 1600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2000.jpeg 2000w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2600.jpeg 2600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-3200.jpeg 3200w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg 5184w" alt="" class="searchuser_image"></div>
+                            <div class="searchuser_images_wrap"><img src="images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-500.jpeg 500w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-800.jpeg 800w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1080.jpeg 1080w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1600.jpeg 1600w, images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg 4256w" alt="" class="searchuser_image"></div>
+                            <div class="searchuser_images_wrap_hide"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, 212.34375px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="searchuser_image"></div>
+                          </div>
+                          <div class="searchuser_down">
+                            <div class="liked_button_form_block w-form">
+                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="liked_button_form"><input type="submit" value="いいね!済" data-wait="Please wait..." class="liked_button w-button"></form>
+                              <div class="w-form-done">
+                                <div>Thank you! Your submission has been received!</div>
+                              </div>
+                              <div class="w-form-fail">
+                                <div>Oops! Something went wrong while submitting the form.</div>
+                              </div>
+                            </div>
+                            <div class="like_button_form_block w-form">
+                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="like_button_form"><input type="submit" value="いいね!を送る" data-wait="Please wait..." class="like_button w-button"></form>
+                              <div class="w-form-done">
+                                <div>Thank you! Your submission has been received!</div>
+                              </div>
+                              <div class="w-form-fail">
+                                <div>Oops! Something went wrong while submitting the form.</div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div data-w-tab="Tab 3" class="tab-pane-tab-3 w-tab-pane">
-                  <div class="top_pickup_job_section user_mypage_tab_padding">
-                    <div class="w-layout-grid grid-2">
-                      <div class="searchjob_jobcard">
-                        <div class="lp_jobcard_image_wrap"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="lp_jobcard_image"></div>
-                        <div class="lp_jobcard_icon_wrap">
-                          <a href="#" class="lp_jobcard_icon w-button"></a>
+                  <div class="unmypage_tb2_wrap">
+                    <div class="searchjob_w">
+                      <div class="w-layout-grid searchjob_grid">
+                        <div id="w-node-_5fc49bef-5635-f6b1-9ab7-283a6cd9e4b2-98d08adf" class="searchuser_card">
+                          <div class="searchuser_up">
+                            <div class="searchuser_up_left_wrap">
+                              <div class="searchuser_image_wrap"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" width="100" alt="" class="image-8"></div>
+                              <div class="searchuser_up_left">
+                                <div class="searchuser_left_pr_div">
+                                  <div class="searchuser_pr">医療機器メーカーで営業、IT業界でマーケティングの経験があります！</div>
+                                  <div class="div-block-71">
+                                    <div class="searchuser_hobby">好きなことは？</div>
+                                    <div class="searchuser_hobby_text">K-POP</div>
+                                  </div>
+                                </div>
+                                <div class="searchuser_left_div">
+                                  <div class="serchuser_sector_div">
+                                    <div class="searchuser_left_label">営業</div>
+                                    <div class="searchuser_left_text">3年</div>
+                                  </div>
+                                  <div class="serchuser_sector_div">
+                                    <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
+                                    <div class="searchuser_left_text">3年</div>
+                                  </div>
+                                  <div class="serchuser_sector_div">
+                                    <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
+                                    <div class="searchuser_left_text">3年</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="searchuser_left_div_hide2">
+                              <div class="serchuser_sector_div">
+                                <div class="searchuser_left_label">営業</div>
+                                <div class="searchuser_left_text">3年</div>
+                              </div>
+                              <div class="serchuser_sector_div">
+                                <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
+                                <div class="searchuser_left_text">3年</div>
+                              </div>
+                              <div class="serchuser_sector_div">
+                                <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
+                                <div class="searchuser_left_text">3年</div>
+                              </div>
+                            </div>
+                            <div class="searchuser_up_line_wrap">
+                              <div class="searchuser_up_line"></div>
+                            </div>
+                            <div class="searchuser_up_right">
+                              <div class="searchuser_right">
+                                <div class="searchuser_right_div">
+                                  <div class="searchuser_right_label_wrap">
+                                    <div class="searchuser_right_label">最終学歴</div>
+                                  </div>
+                                  <div class="searchuser_right_text_wrap">
+                                    <div class="searchuser_rigth_text">大学卒</div>
+                                  </div>
+                                </div>
+                                <div class="searchuser_right_div">
+                                  <div class="searchuser_right_label_wrap">
+                                    <div class="searchuser_right_label">希望の入社時期</div>
+                                  </div>
+                                  <div class="searchuser_right_text_wrap">
+                                    <div class="searchuser_rigth_text">3ヶ月以内</div>
+                                  </div>
+                                </div>
+                                <div class="searchuser_right_div">
+                                  <div class="searchuser_right_label_wrap">
+                                    <div class="searchuser_right_label">希望の勤務地</div>
+                                  </div>
+                                  <div class="searchuser_right_text_wrap">
+                                    <div class="searchuser_rigth_text">東京23区</div>
+                                    <div class="searchuser_rigth_text">東京23区外</div>
+                                    <div class="searchuser_rigth_text">大阪</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="searchuser_images">
+                            <div class="searchuser_images_wrap"><img src="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1080.jpeg 1080w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1600.jpeg 1600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2000.jpeg 2000w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2600.jpeg 2600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-3200.jpeg 3200w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg 5184w" alt="" class="searchuser_image"></div>
+                            <div class="searchuser_images_wrap"><img src="images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-500.jpeg 500w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-800.jpeg 800w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1080.jpeg 1080w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1600.jpeg 1600w, images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg 4256w" alt="" class="searchuser_image"></div>
+                            <div class="searchuser_images_wrap_hide"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, 212.34375px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="searchuser_image"></div>
+                          </div>
+                          <div class="searchuser_down">
+                            <div class="liked_button_form_block w-form">
+                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="liked_button_form"><input type="submit" value="いいね!済" data-wait="Please wait..." class="liked_button w-button"></form>
+                              <div class="w-form-done">
+                                <div>Thank you! Your submission has been received!</div>
+                              </div>
+                              <div class="w-form-fail">
+                                <div>Oops! Something went wrong while submitting the form.</div>
+                              </div>
+                            </div>
+                            <div class="like_button_form_block w-form">
+                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="like_button_form"><input type="submit" value="いいね!を送る" data-wait="Please wait..." class="like_button w-button"></form>
+                              <div class="w-form-done">
+                                <div>Thank you! Your submission has been received!</div>
+                              </div>
+                              <div class="w-form-fail">
+                                <div>Oops! Something went wrong while submitting the form.</div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <div class="lp_jobcard_sentence">
-                          <div class="lp_jobcard_title">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
-                          <div class="lp_jobcard_label">400万〜600万</div>
-                          <div class="lp_jobcard_label">東京23区</div>
-                        </div>
-                      </div>
-                      <div class="searchjob_jobcard">
-                        <div class="lp_jobcard_image_wrap"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="lp_jobcard_image"></div>
-                        <div class="lp_jobcard_icon_wrap">
-                          <a href="#" class="lp_jobcard_icon w-button"></a>
-                        </div>
-                        <div class="lp_jobcard_sentence">
-                          <div class="lp_jobcard_title">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
-                          <div class="lp_jobcard_label">400万〜600万</div>
-                          <div class="lp_jobcard_label">東京23区</div>
-                        </div>
-                      </div>
-                      <div class="searchjob_jobcard">
-                        <div class="lp_jobcard_image_wrap"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="lp_jobcard_image"></div>
-                        <div class="lp_jobcard_icon_wrap">
-                          <a href="#" class="lp_jobcard_icon w-button"></a>
-                        </div>
-                        <div class="lp_jobcard_sentence">
-                          <div class="lp_jobcard_title">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
-                          <div class="lp_jobcard_label">400万〜600万</div>
-                          <div class="lp_jobcard_label">東京23区</div>
-                        </div>
-                      </div>
-                      <div class="searchjob_jobcard">
-                        <div class="lp_jobcard_image_wrap"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="lp_jobcard_image"></div>
-                        <div class="lp_jobcard_icon_wrap">
-                          <a href="#" class="lp_jobcard_icon w-button"></a>
-                        </div>
-                        <div class="lp_jobcard_sentence">
-                          <div class="lp_jobcard_title">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
-                          <div class="lp_jobcard_label">400万〜600万</div>
-                          <div class="lp_jobcard_label">東京23区</div>
-                        </div>
-                      </div>
-                      <div class="searchjob_jobcard">
-                        <div class="lp_jobcard_image_wrap"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="lp_jobcard_image"></div>
-                        <div class="lp_jobcard_icon_wrap">
-                          <a href="#" class="lp_jobcard_icon w-button"></a>
-                        </div>
-                        <div class="lp_jobcard_sentence">
-                          <div class="lp_jobcard_title">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
-                          <div class="lp_jobcard_label">400万〜600万</div>
-                          <div class="lp_jobcard_label">東京23区</div>
+                        <div id="w-node-ce1156d9-f329-32d7-b99b-34446c55830d-98d08adf" class="searchuser_card">
+                          <div class="searchuser_up">
+                            <div class="searchuser_up_left_wrap">
+                              <div class="searchuser_image_wrap"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" width="100" alt="" class="image-8"></div>
+                              <div class="searchuser_up_left">
+                                <div class="searchuser_left_pr_div">
+                                  <div class="searchuser_pr">医療機器メーカーで営業、IT業界でマーケティングの経験があります！</div>
+                                  <div class="div-block-71">
+                                    <div class="searchuser_hobby">好きなことは？</div>
+                                    <div class="searchuser_hobby_text">K-POP</div>
+                                  </div>
+                                </div>
+                                <div class="searchuser_left_div">
+                                  <div class="serchuser_sector_div">
+                                    <div class="searchuser_left_label">営業</div>
+                                    <div class="searchuser_left_text">3年</div>
+                                  </div>
+                                  <div class="serchuser_sector_div">
+                                    <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
+                                    <div class="searchuser_left_text">3年</div>
+                                  </div>
+                                  <div class="serchuser_sector_div">
+                                    <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
+                                    <div class="searchuser_left_text">3年</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="searchuser_left_div_hide2">
+                              <div class="serchuser_sector_div">
+                                <div class="searchuser_left_label">営業</div>
+                                <div class="searchuser_left_text">3年</div>
+                              </div>
+                              <div class="serchuser_sector_div">
+                                <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
+                                <div class="searchuser_left_text">3年</div>
+                              </div>
+                              <div class="serchuser_sector_div">
+                                <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
+                                <div class="searchuser_left_text">3年</div>
+                              </div>
+                            </div>
+                            <div class="searchuser_up_line_wrap">
+                              <div class="searchuser_up_line"></div>
+                            </div>
+                            <div class="searchuser_up_right">
+                              <div class="searchuser_right">
+                                <div class="searchuser_right_div">
+                                  <div class="searchuser_right_label_wrap">
+                                    <div class="searchuser_right_label">最終学歴</div>
+                                  </div>
+                                  <div class="searchuser_right_text_wrap">
+                                    <div class="searchuser_rigth_text">大学卒</div>
+                                  </div>
+                                </div>
+                                <div class="searchuser_right_div">
+                                  <div class="searchuser_right_label_wrap">
+                                    <div class="searchuser_right_label">希望の入社時期</div>
+                                  </div>
+                                  <div class="searchuser_right_text_wrap">
+                                    <div class="searchuser_rigth_text">3ヶ月以内</div>
+                                  </div>
+                                </div>
+                                <div class="searchuser_right_div">
+                                  <div class="searchuser_right_label_wrap">
+                                    <div class="searchuser_right_label">希望の勤務地</div>
+                                  </div>
+                                  <div class="searchuser_right_text_wrap">
+                                    <div class="searchuser_rigth_text">東京23区</div>
+                                    <div class="searchuser_rigth_text">東京23区外</div>
+                                    <div class="searchuser_rigth_text">大阪</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="searchuser_images">
+                            <div class="searchuser_images_wrap"><img src="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1080.jpeg 1080w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1600.jpeg 1600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2000.jpeg 2000w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2600.jpeg 2600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-3200.jpeg 3200w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg 5184w" alt="" class="searchuser_image"></div>
+                            <div class="searchuser_images_wrap"><img src="images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-500.jpeg 500w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-800.jpeg 800w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1080.jpeg 1080w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1600.jpeg 1600w, images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg 4256w" alt="" class="searchuser_image"></div>
+                            <div class="searchuser_images_wrap_hide"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, 212.34375px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="searchuser_image"></div>
+                          </div>
+                          <div class="searchuser_down">
+                            <div class="liked_button_form_block w-form">
+                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="liked_button_form"><input type="submit" value="いいね!済" data-wait="Please wait..." class="liked_button w-button"></form>
+                              <div class="w-form-done">
+                                <div>Thank you! Your submission has been received!</div>
+                              </div>
+                              <div class="w-form-fail">
+                                <div>Oops! Something went wrong while submitting the form.</div>
+                              </div>
+                            </div>
+                            <div class="like_button_form_block w-form">
+                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="like_button_form"><input type="submit" value="いいね!を送る" data-wait="Please wait..." class="like_button w-button"></form>
+                              <div class="w-form-done">
+                                <div>Thank you! Your submission has been received!</div>
+                              </div>
+                              <div class="w-form-fail">
+                                <div>Oops! Something went wrong while submitting the form.</div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -228,7 +534,7 @@
         <div>
           <div class="fotter-section">
             <div class="footer-flex-container">
-              <a href="#" class="footer-logo-link"><img src="https://uploads-ssl.webflow.com/5db1c76aadcfe25e881680fa/5db86dc421496616bf357c25_placeholder.svg" alt="" class="footer-image"></a>
+              <a href="#" class="footer-logo-link"><img src="images/logo-2.png" alt="" class="footer-image"></a>
               <div class="div-block-43">
                 <h2 class="footer-heading">Job World</h2>
                 <ul role="list" class="w-list-unstyled">
@@ -252,11 +558,6 @@
             <div class="text-block-7">Copyright 2021 Magic World株式会社(マジックワールド株式会社)</div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="section wf-section">
-      <div class="container">
-        <div></div>
       </div>
     </div>
   </div>
