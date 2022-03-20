@@ -62,7 +62,7 @@ class ItemModelAdmin(admin.ModelAdmin):
 
 @admin.register(UserFavoriteItemModel)
 class UserFavoriteItemModelAdmin(admin.ModelAdmin):
-    list_display = ('id','item','user','created_at','delete_flg')
+    list_display = ('id','item','normal_user','created_at','delete_flg')
 
 @admin.register(LocationModel)
 class LocationModelAdmin(admin.ModelAdmin):

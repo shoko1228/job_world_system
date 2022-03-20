@@ -19,26 +19,39 @@ class ItemView(TemplateView):
         items = form.filter_items(items)
         item_cnt = len(items)
           
+        # for item in items:
+        #     item.is_favorited = False
+        #     if self.request.user.is_authenticated:
+        #         if request.user.user_type == USER_TYPE.NORMAL_USER:
+        #             favorite_items = UserFavoriteItemModel.objects.filter(user=request.user).all()
+        #             print(favorite_items)
+        #             for favorite_item in favorite_items:
+        #                 print(favorite_item)
+        #                 if item.id == favorite_item.item_id:
+        #                     item.is_favorited = True
+        #                     break
+
+        favorite_item_list = []
+        if self.request.user.is_authenticated:
+            if request.user.user_type == USER_TYPE.NORMAL_USER:
+                favorite_items = UserFavoriteItemModel.objects.filter(normal_user=request.user.normal_user).all()
+                favorite_item_list = [favorite_item.item_id for favorite_item in favorite_items]
+        
         for item in items:
             item.is_favorited = False
             if self.request.user.is_authenticated:
                 if request.user.user_type == USER_TYPE.NORMAL_USER:
-                    favorite_items = UserFavoriteItemModel.objects.filter(user=request.user).all()
-                    for favorite_item in favorite_items:
-                        if item.id == favorite_item.item_id:
-                            item.is_favorited = True
-                            break
+                    if item.id in favorite_item_list:
+                        item.is_favorited = True
+
 
         items_feature = ItemModel.objects.filter(feature_flag=1)
         for item in items_feature:
             item.is_favorited = False
             if self.request.user.is_authenticated:
                 if request.user.user_type == USER_TYPE.NORMAL_USER:
-                    favorite_items = UserFavoriteItemModel.objects.filter(user=request.user).all()
-                    for favorite_item in favorite_items:
-                        if item.id == favorite_item.item_id:
-                            item.is_favorited = True
-                            break
+                    if item.id in favorite_item_list:
+                        item.is_favorited = True
   
         params = request.GET.copy()
         if 'page' in params:

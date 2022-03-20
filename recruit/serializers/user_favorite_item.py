@@ -6,4 +6,4 @@ class UserFavoriteItemSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = UserFavoriteItemModel
-        fields = ('id', 'user', 'item')
+        fields = ('id', 'normal_user', 'item')

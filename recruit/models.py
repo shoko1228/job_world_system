@@ -86,8 +86,9 @@ class ItemModel(models.Model):
 class UserFavoriteItemModel(models.Model):
     id = models.CharField(max_length=32, default=ulid.new, primary_key=True, editable=False)
     #no = models.CharField(max_length=32, default=0, editable=False)
-    item = models.ForeignKey(ItemModel, db_column="item_id", on_delete=models.CASCADE, null=False, blank=False)
-    user = models.ForeignKey(get_user_model(), db_column="user_id", on_delete=models.CASCADE, null=False, blank=False)
+    item = models.ForeignKey(ItemModel, verbose_name="求人", db_column="item_id", on_delete=models.CASCADE, null=False, blank=False)
+    #user = models.ForeignKey(get_user_model(), db_column="user_id", on_delete=models.CASCADE, null=False, blank=False)
+    normal_user = models.ForeignKey(NormalUser, verbose_name="求職者", db_column="normal_user_id", on_delete=models.CASCADE, null=False, blank=False)
     created_at = models.DateTimeField(verbose_name="作成日時", auto_now_add=True)
     delete_flg = models.IntegerField(verbose_name="削除フラグ", blank=True, default=0)
     
@@ -103,4 +104,20 @@ class UserFavoriteItemModel(models.Model):
     # def save(self, *args, **kwargs):
     #     self.no= self.no + 1
     #     super().save(*args, **kwargs)  # Call the "real" save() method.
+
+class ComFavoriteUserModel(models.Model):
+    id = models.CharField(max_length=32, default=ulid.new, primary_key=True, editable=False)
+    normal_user = models.ForeignKey(NormalUser, verbose_name="求職者", db_column="normal_user_id", on_delete=models.CASCADE, null=False, blank=False)
+    com_user = models.ForeignKey(CompanyUser, verbose_name="企業", db_column="com_user_id", on_delete=models.CASCADE, null=False, blank=False)
+    created_at = models.DateTimeField(verbose_name="作成日時", auto_now_add=True)
+    delete_flg = models.IntegerField(verbose_name="削除フラグ", blank=True, default=0)
+    
+    class Meta:
+        verbose_name = "企業から求職者へのいいね"
+        verbose_name_plural = "企業から求職者へのいいね"
+        db_table = "com_favorite_user"
+
+
+    def __str__(self):
+        return self.id
         

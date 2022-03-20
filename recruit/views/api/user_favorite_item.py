@@ -15,7 +15,7 @@ class UserFavoriteItemAPIView(APIView):
         データ取得
         '''
         # ログインユーザーでフィルター
-        seliarizer = UserFavoriteItemSerializer(UserFavoriteItemModel.objects.filter(user=request.user), many=True)
+        seliarizer = UserFavoriteItemSerializer(UserFavoriteItemModel.objects.filter(user=request.user.normal_user), many=True)
         return Response(seliarizer.data)
     
     
@@ -29,7 +29,7 @@ class UserFavoriteItemAPIView(APIView):
         if not item:
             return Response({"detail": "Item not found"}, status=status.HTTP_400_BAD_REQUEST)
         results = UserFavoriteItemModel.objects.get_or_create(
-                user = request.user, 
+                normal_user = request.user.normal_user, 
                 item = item
             )
         seliarizer = UserFavoriteItemSerializer(results[0])
