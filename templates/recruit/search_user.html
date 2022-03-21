@@ -190,7 +190,7 @@
                                 <div class="searchuser_right_label">最終学歴</div>
                               </div>
                               <div class="searchuser_right_text_wrap">
-                                <div class="searchuser_rigth_text">{{normal_user.education_status}}</div>
+                                <div class="searchuser_rigth_text">{{normal_user.school_type}} {{normal_user.education_status}}</div>
                               </div>
                             </div>
                             <div class="searchuser_right_div">
@@ -219,26 +219,22 @@
                         <div class="searchuser_images_wrap"><img src="images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 42vw, (max-width: 767px) 38vw, (max-width: 991px) 194.90625px, 201.71875px" srcset="images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-500.jpeg 500w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-800.jpeg 800w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1080.jpeg 1080w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1600.jpeg 1600w, images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg 4256w" alt="" class="searchuser_image"></div>
                         <div class="searchuser_images_wrap_hide"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 194.90625px, 201.71875px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="searchuser_image"></div>
                       </div>
+
                       <div class="searchuser_down">
-                        <div class="liked_button_form_block w-form">
-                          <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="liked_button_form"><input type="submit" value="いいね!済" data-wait="Please wait..." class="liked_button w-button"></form>
-                          <div class="w-form-done">
-                            <div>Thank you! Your submission has been received!</div>
-                          </div>
-                          <div class="w-form-fail">
-                            <div>Oops! Something went wrong while submitting the form.</div>
-                          </div>
-                        </div>
-                        <div class="like_button_form_block w-form">
-                          <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="like_button_form"><input type="submit" value="いいね!を送る" data-wait="Please wait..." class="like_button w-button"></form>
-                          <div class="w-form-done">
-                            <div>Thank you! Your submission has been received!</div>
-                          </div>
-                          <div class="w-form-fail">
-                            <div>Oops! Something went wrong while submitting the form.</div>
-                          </div>
-                        </div>
+                         <input 
+                        style="border: 2px solid #333;"
+                        type="button" 
+                        name="favoriteUser" 
+                        {% if normal_user.is_favorited %}
+                          class="liked_button w-button" 
+                          value="いいね済" 
+                        {% else %}
+                          class="like_button w-button" 
+                          value="いいね！" 
+                        {% endif %} 
+                        data-user_id="{{ normal_user.id }}"> 
                       </div>
+
                     </div>
                     {% endfor %}
                     
@@ -288,3 +284,59 @@
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>
 </html>
+
+<script>
+  const CSRF_TOKEN = "{{ csrf_token }}";
+
+  for (let elm of document.getElementsByName("favoriteUser")) {
+    elm.addEventListener("click", (e) => {
+      //ログインしていない場合は会員登録へ
+      {% if request.user.is_authenticated %}
+        favoriteUser(e.target.dataset.user_id);
+        e.target.value = "いいね済";
+        e.target.classList.remove('like_button');
+        e.target.classList.add('liked_button');
+      {% else %}
+        window.location.href = "{% url 'account_signup' %}"
+      {% endif %}
+
+    });
+  }
+  async function favoriteUser(userId) {
+    const postData = JSON.stringify({
+      normal_user: userId,
+    });
+    res = await executeAPI("api/user_favorite", postData, "POST");
+    if (res) {
+
+    }
+  }
+
+  async function executeAPI(url, body, method) {
+    try {
+      const headers = {
+        "content-type": "application/json",
+        "X-CSRFToken": CSRF_TOKEN,
+      };
+      const res = await fetch(url, {
+        method: method,
+        headers: headers,
+        body: body,
+      });
+      if (res.status >= 200 && res.status < 300) {
+        return await res;
+      } else {
+        alert("APIエラー");
+        console.log(res);
+        return null;
+      }
+    } catch (e) {
+      console.log(e);
+      return null;
+    }
+  }
+
+  $('input').click(function() {
+    console.log('クリックされました！');
+  })
+</script>

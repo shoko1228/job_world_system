@@ -10,6 +10,7 @@ from .views.item import ItemView
 from .views.search_user import SearchUserView
 from .views.item_detail import ItemDetailView
 from .views.api.user_favorite_item import UserFavoriteItemAPIView
+from .views.api.com_favorite_user import ComFavoriteUserAPIView
 
 app_name = "recruit"
 urlpatterns = [
@@ -19,5 +20,6 @@ urlpatterns = [
     path('item_detail', ItemDetailView.as_view(), name="item_detail"),
     #path('item_detail/<int:pk>/', ItemDetailView.as_view(), name='item_detail'),
     path(r'api/item_favorite', UserFavoriteItemAPIView.as_view()),
+    path(r'api/user_favorite', ComFavoriteUserAPIView.as_view()),
     path('search_user', SearchUserView.as_view(), name="search_user"),
 ]

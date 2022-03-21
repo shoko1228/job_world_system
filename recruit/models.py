@@ -121,3 +121,19 @@ class ComFavoriteUserModel(models.Model):
     def __str__(self):
         return self.id
         
+
+class MatchingrModel(models.Model):
+    id = models.CharField(max_length=32, default=ulid.new, primary_key=True, editable=False)
+    normal_user = models.ForeignKey(NormalUser, verbose_name="求職者", db_column="normal_user_id", on_delete=models.CASCADE, null=False, blank=False)
+    com_user = models.ForeignKey(CompanyUser, verbose_name="企業", db_column="com_user_id", on_delete=models.CASCADE, null=False, blank=False)
+    created_at = models.DateTimeField(verbose_name="作成日時", auto_now_add=True)
+    delete_flg = models.IntegerField(verbose_name="削除フラグ", blank=True, default=0)
+    
+    class Meta:
+        verbose_name = "マッチング"
+        verbose_name_plural = "マッチング"
+        db_table = "matching"
+
+
+    def __str__(self):
+        return self.id

@@ -3,8 +3,9 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import render, redirect
 
-from recruit.models import UserFavoriteItemModel, ItemModel
-from recruit.serializers.user_favorite_item import UserFavoriteItemSerializer 
+from recruit.models import UserFavoriteItemModel, ItemModel, MatchingrModel
+from recruit.serializers.user_favorite_item import UserFavoriteItemSerializer
+from recruit.serializers.matching import MatchingSerializer
 from django.contrib.auth import get_user_model
 
 
@@ -32,6 +33,11 @@ class UserFavoriteItemAPIView(APIView):
                 normal_user = request.user.normal_user, 
                 item = item
             )
+        results_matching = MatchingrModel.objects.get_or_create(
+                normal_user = request.user.normal_user, 
+                com_user = item.company
+            )
         seliarizer = UserFavoriteItemSerializer(results[0])
+        seliarizer_matching = MatchingSerializer(results_matching[0])
         return Response(seliarizer.data)
     
