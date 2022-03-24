@@ -190,262 +190,141 @@
                     </div>
                   </div>
                 </div>
+                {% comment %} 企業からのいいね {% endcomment %}
                 <div data-w-tab="Tab 2" class="tab-pane-tab-2 w-tab-pane">
                   <div class="unmypage_tb2_wrap">
                     <div class="searchjob_w">
                       <div class="w-layout-grid searchjob_grid">
-                        <div class="searchjob_section">
-                          <div class="searchjob_slider_up">
-                            <div class="search_job_slider_image_wrap"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="search_job_slider_image"></div>
-                            <div class="search_job_slider_image_wrap"><img src="images/barney-yau-BbGuVc9YTaw-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/barney-yau-BbGuVc9YTaw-unsplash-p-500.jpeg 500w, images/barney-yau-BbGuVc9YTaw-unsplash-p-800.jpeg 800w, images/barney-yau-BbGuVc9YTaw-unsplash-p-1080.jpeg 1080w, images/barney-yau-BbGuVc9YTaw-unsplash-p-1600.jpeg 1600w, images/barney-yau-BbGuVc9YTaw-unsplash-p-2000.jpeg 2000w, images/barney-yau-BbGuVc9YTaw-unsplash.jpg 4240w" alt="" class="search_job_slider_image"></div>
-                            <div class="search_job_slider_image_wrap searchjob_slider_image_hide"><img src="images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, 212.34375px" srcset="images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-1080.jpeg 1080w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-1600.jpeg 1600w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-2000.jpeg 2000w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-2600.jpeg 2600w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-3200.jpeg 3200w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash.jpg 4896w" alt="" class="search_job_slider_image"></div>
-                          </div>
-                          <div class="searchjob_slider_middle">
-                            <div class="searchjob_slider_middle_left">
-                              <div class="searchjob_slider_left_sentence">
-                                <a href="#" class="text-block-23 w-inline-block">
-                                  <div class="text-block-23">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
-                                </a>
-                                <div class="text-block-24">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
-                                <div class="text-block-24-copy">企画・マーケティング</div>
-                              </div>
-                            </div>
-                            <div class="searchjob_slider_middle_middle">
-                              <div class="search_job_slider_sentence_line"></div>
-                            </div>
-                            <div class="searchjob_slider_middle_right">
-                              <div class="searchjob_slider_right_sentence">
-                                <div class="job-search-sentence-right-div">
-                                  <div class="job-search-sentence-right-label-div">
-                                    <div class="job-search-sentence-right-label">勤務地</div>
-                                  </div>
-                                  <div class="job-search-sentence-right-text-div">
-                                    <div class="job-search-sentence-right-text">東京23区</div>
-                                  </div>
-                                </div>
-                                <div class="job-search-sentence-right-div">
-                                  <div class="job-search-sentence-right-label-div">
-                                    <div class="job-search-sentence-right-label">年収</div>
-                                  </div>
-                                  <div class="job-search-sentence-right-text-div">
-                                    <div class="job-search-sentence-right-text">400〜800万</div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="searchjob_slider_down">
-                            <div class="liked_button_form_block w-form">
-                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="liked_button_form"><input type="submit" value="いいね!済" data-wait="Please wait..." class="liked_button w-button"></form>
-                              <div class="w-form-done">
-                                <div>Thank you! Your submission has been received!</div>
-                              </div>
-                              <div class="w-form-fail">
-                                <div>Oops! Something went wrong while submitting the form.</div>
-                              </div>
-                            </div>
-                            <div class="like_button_form_block w-form">
-                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="like_button_form"><input type="submit" value="いいね!を送る" data-wait="Please wait..." class="like_button w-button"></form>
-                              <div class="w-form-done">
-                                <div>Thank you! Your submission has been received!</div>
-                              </div>
-                              <div class="w-form-fail">
-                                <div>Oops! Something went wrong while submitting the form.</div>
-                              </div>
-                            </div>
-                          </div>
+                   <!-- 求人カード-->
+                   {% for item in com_favorite_users_items %}
+                   <div class="searchjob_section">
+                     <div class="searchjob_slider_up">
+                       <div class="search_job_slider_image_wrap"><img src="{{item.image1.url}}" loading="lazy" sizes="(max-width: 479px) 42vw, (max-width: 767px) 38vw, (max-width: 991px) 194.90625px, 201.71875px"  alt="" class="search_job_slider_image"></div>
+                       <div class="search_job_slider_image_wrap"><img src="{{item.image2.url}}" loading="lazy" sizes="(max-width: 479px) 42vw, (max-width: 767px) 38vw, (max-width: 991px) 194.90625px, 201.71875px"  alt="" class="search_job_slider_image"></div>
+                       <div class="search_job_slider_image_wrap searchjob_slider_image_hide"><img src="{{item.image3.url}}" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 194.90625px, 201.71875px" alt="" class="search_job_slider_image"></div>
+                     </div>
+                     <div class="searchjob_slider_middle">
+                       <div class="searchjob_slider_middle_left">
+                         <div class="searchjob_slider_left_sentence">
+                           <a href="{% url 'recruit:item_detail'%}?id={{item.id}}" class="text-block-23 w-inline-block">
+                             {{item.name| truncatechars:47}}
+                           </a>
+                           <div class="text-block-24">{{item.sub_title| default:""| truncatechars:50}}</div>
+                           <div class="text-block-24-copy">{{item.sector| default:"" }}</div>
+                           {% comment %} <a href="{% url 'recruit:item_detail'%}?id={{item.id}}" class="link-block-3-copy w-inline-block">詳細</a> {% endcomment %}
+                         </div>
+                       </div>
+                       <div class="searchjob_slider_middle_middle">
+                         <div class="search_job_slider_sentence_line"></div>
+                       </div>
+                       <div class="searchjob_slider_middle_right">
+                         <div class="searchjob_slider_right_sentence">
+                           <div class="job-search-sentence-right-div">
+                             <div class="job-search-sentence-right-label-div">
+                               <div class="job-search-sentence-right-label">勤務地</div>
+                             </div>
+                             <div class="job-search-sentence-right-text-div">
+                               <div class="job-search-sentence-right-text">{{item.location| default:""}}</div>
+                             </div>
+                           </div>
+                           <div class="job-search-sentence-right-div">
+                             <div class="job-search-sentence-right-label-div">
+                               <div class="job-search-sentence-right-label">年収</div>
+                             </div>
+                             <div class="job-search-sentence-right-text-div">
+                               <div class="job-search-sentence-right-text">{{item.salary| default:""}}</div>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                     <div class="searchjob_slider_down w-clearfix">
+                       {% comment %} <a href="{% url 'recruit:item_detail'%}?id={{item.id}}" class="link-block-3-copy w-inline-block">
+                         <div class="top_main_button-copy">
+                           <div class="div-block-46">
+                             <div>詳細</div>
+                           </div>
+                         </div>
+                       </a>  {% endcomment %}
+                       <input 
+                         style="border: 2px solid #333;"
+                         type="button" 
+                         name="favoriteItem" 
+                         {% if item.is_favorited %}
+                           class="liked_button w-button" 
+                           value="いいね済" 
+                         {% else %}
+                           class="like_button w-button" 
+                           value="いいね！" 
+                         {% endif %} 
+                         data-item_id="{{ item.id }}">
+                     </div>
+                   </div>
+                   {% endfor %}
+                   <!-- 求人カード　ここまで-->
+  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {% comment %} 自分からのいいね {% endcomment %}
+                <div data-w-tab="Tab 3" class="tab-pane-tab-3 w-tab-pane w--tab-active">
+                  <div class="unmypage_tb2_wrap">
+                    <div class="searchjob_w">
+                      <div class="w-layout-grid searchjob_grid">
+
+                  <!-- 求人カード-->
+                  {% for user_favorite_item in user_favorite_items %}
+                  <div class="searchjob_section">
+                    <div class="searchjob_slider_up">
+                      <div class="search_job_slider_image_wrap"><img src="{{user_favorite_item.item.image1.url}}" loading="lazy" sizes="(max-width: 479px) 42vw, (max-width: 767px) 38vw, (max-width: 991px) 194.90625px, 201.71875px"  alt="" class="search_job_slider_image"></div>
+                      <div class="search_job_slider_image_wrap"><img src="{{user_favorite_item.item.image2.url}}" loading="lazy" sizes="(max-width: 479px) 42vw, (max-width: 767px) 38vw, (max-width: 991px) 194.90625px, 201.71875px"  alt="" class="search_job_slider_image"></div>
+                      <div class="search_job_slider_image_wrap searchjob_slider_image_hide"><img src="{{user_favorite_item.item.image3.url}}" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 194.90625px, 201.71875px" alt="" class="search_job_slider_image"></div>
+                    </div>
+                    <div class="searchjob_slider_middle">
+                      <div class="searchjob_slider_middle_left">
+                        <div class="searchjob_slider_left_sentence">
+                          <a href="{% url 'recruit:item_detail'%}?id={{user_favorite_item.item.id}}" class="text-block-23 w-inline-block">
+                            {{user_favorite_item.item.name| truncatechars:47}}
+                          </a>
+                          <div class="text-block-24">{{user_favorite_item.item.sub_title| default:""| truncatechars:50}}</div>
+                          <div class="text-block-24-copy">{{user_favorite_item.item.sector| default:"" }}</div>
+                          {% comment %} <a href="{% url 'recruit:item_detail'%}?id={{item.id}}" class="link-block-3-copy w-inline-block">詳細</a> {% endcomment %}
                         </div>
-                        <div class="searchjob_section">
-                          <div class="searchjob_slider_up">
-                            <div class="search_job_slider_image_wrap"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="search_job_slider_image"></div>
-                            <div class="search_job_slider_image_wrap"><img src="images/barney-yau-BbGuVc9YTaw-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/barney-yau-BbGuVc9YTaw-unsplash-p-500.jpeg 500w, images/barney-yau-BbGuVc9YTaw-unsplash-p-800.jpeg 800w, images/barney-yau-BbGuVc9YTaw-unsplash-p-1080.jpeg 1080w, images/barney-yau-BbGuVc9YTaw-unsplash-p-1600.jpeg 1600w, images/barney-yau-BbGuVc9YTaw-unsplash-p-2000.jpeg 2000w, images/barney-yau-BbGuVc9YTaw-unsplash.jpg 4240w" alt="" class="search_job_slider_image"></div>
-                            <div class="search_job_slider_image_wrap searchjob_slider_image_hide"><img src="images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, 212.34375px" srcset="images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-1080.jpeg 1080w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-1600.jpeg 1600w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-2000.jpeg 2000w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-2600.jpeg 2600w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-3200.jpeg 3200w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash.jpg 4896w" alt="" class="search_job_slider_image"></div>
-                          </div>
-                          <div class="searchjob_slider_middle">
-                            <div class="searchjob_slider_middle_left">
-                              <div class="searchjob_slider_left_sentence">
-                                <a href="#" class="text-block-23 w-inline-block">
-                                  <div class="text-block-23">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
-                                </a>
-                                <div class="text-block-24">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
-                                <div class="text-block-24-copy">企画・マーケティング</div>
-                              </div>
+                      </div>
+                      <div class="searchjob_slider_middle_middle">
+                        <div class="search_job_slider_sentence_line"></div>
+                      </div>
+                      <div class="searchjob_slider_middle_right">
+                        <div class="searchjob_slider_right_sentence">
+                          <div class="job-search-sentence-right-div">
+                            <div class="job-search-sentence-right-label-div">
+                              <div class="job-search-sentence-right-label">勤務地</div>
                             </div>
-                            <div class="searchjob_slider_middle_middle">
-                              <div class="search_job_slider_sentence_line"></div>
-                            </div>
-                            <div class="searchjob_slider_middle_right">
-                              <div class="searchjob_slider_right_sentence">
-                                <div class="job-search-sentence-right-div">
-                                  <div class="job-search-sentence-right-label-div">
-                                    <div class="job-search-sentence-right-label">勤務地</div>
-                                  </div>
-                                  <div class="job-search-sentence-right-text-div">
-                                    <div class="job-search-sentence-right-text">東京23区</div>
-                                  </div>
-                                </div>
-                                <div class="job-search-sentence-right-div">
-                                  <div class="job-search-sentence-right-label-div">
-                                    <div class="job-search-sentence-right-label">年収</div>
-                                  </div>
-                                  <div class="job-search-sentence-right-text-div">
-                                    <div class="job-search-sentence-right-text">400〜800万</div>
-                                  </div>
-                                </div>
-                              </div>
+                            <div class="job-search-sentence-right-text-div">
+                              <div class="job-search-sentence-right-text">{{user_favorite_item.item.location| default:""}}</div>
                             </div>
                           </div>
-                          <div class="searchjob_slider_down">
-                            <div class="liked_button_form_block w-form">
-                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="liked_button_form"><input type="submit" value="いいね!済" data-wait="Please wait..." class="liked_button w-button"></form>
-                              <div class="w-form-done">
-                                <div>Thank you! Your submission has been received!</div>
-                              </div>
-                              <div class="w-form-fail">
-                                <div>Oops! Something went wrong while submitting the form.</div>
-                              </div>
+                          <div class="job-search-sentence-right-div">
+                            <div class="job-search-sentence-right-label-div">
+                              <div class="job-search-sentence-right-label">年収</div>
                             </div>
-                            <div class="like_button_form_block w-form">
-                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="like_button_form"><input type="submit" value="いいね!を送る" data-wait="Please wait..." class="like_button w-button"></form>
-                              <div class="w-form-done">
-                                <div>Thank you! Your submission has been received!</div>
-                              </div>
-                              <div class="w-form-fail">
-                                <div>Oops! Something went wrong while submitting the form.</div>
-                              </div>
+                            <div class="job-search-sentence-right-text-div">
+                              <div class="job-search-sentence-right-text">{{user_favorite_item.item.salary| default:""}}</div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                    <div class="searchjob_slider_down w-clearfix">                      
+                    </div>
                   </div>
-                </div>
-                <div data-w-tab="Tab 3" class="tab-pane-tab-3 w-tab-pane w--tab-active">
-                  <div class="unmypage_tb2_wrap">
-                    <div class="searchjob_w">
-                      <div class="w-layout-grid searchjob_grid">
-                        <div class="searchjob_section">
-                          <div class="searchjob_slider_up">
-                            <div class="search_job_slider_image_wrap"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="search_job_slider_image"></div>
-                            <div class="search_job_slider_image_wrap"><img src="images/barney-yau-BbGuVc9YTaw-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/barney-yau-BbGuVc9YTaw-unsplash-p-500.jpeg 500w, images/barney-yau-BbGuVc9YTaw-unsplash-p-800.jpeg 800w, images/barney-yau-BbGuVc9YTaw-unsplash-p-1080.jpeg 1080w, images/barney-yau-BbGuVc9YTaw-unsplash-p-1600.jpeg 1600w, images/barney-yau-BbGuVc9YTaw-unsplash-p-2000.jpeg 2000w, images/barney-yau-BbGuVc9YTaw-unsplash.jpg 4240w" alt="" class="search_job_slider_image"></div>
-                            <div class="search_job_slider_image_wrap searchjob_slider_image_hide"><img src="images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, 212.34375px" srcset="images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-1080.jpeg 1080w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-1600.jpeg 1600w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-2000.jpeg 2000w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-2600.jpeg 2600w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-3200.jpeg 3200w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash.jpg 4896w" alt="" class="search_job_slider_image"></div>
-                          </div>
-                          <div class="searchjob_slider_middle">
-                            <div class="searchjob_slider_middle_left">
-                              <div class="searchjob_slider_left_sentence">
-                                <a href="#" class="text-block-23 w-inline-block">
-                                  <div class="text-block-23">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
-                                </a>
-                                <div class="text-block-24">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
-                                <div class="text-block-24-copy">企画・マーケティング</div>
-                              </div>
-                            </div>
-                            <div class="searchjob_slider_middle_middle">
-                              <div class="search_job_slider_sentence_line"></div>
-                            </div>
-                            <div class="searchjob_slider_middle_right">
-                              <div class="searchjob_slider_right_sentence">
-                                <div class="job-search-sentence-right-div">
-                                  <div class="job-search-sentence-right-label-div">
-                                    <div class="job-search-sentence-right-label">勤務地</div>
-                                  </div>
-                                  <div class="job-search-sentence-right-text-div">
-                                    <div class="job-search-sentence-right-text">東京23区</div>
-                                  </div>
-                                </div>
-                                <div class="job-search-sentence-right-div">
-                                  <div class="job-search-sentence-right-label-div">
-                                    <div class="job-search-sentence-right-label">年収</div>
-                                  </div>
-                                  <div class="job-search-sentence-right-text-div">
-                                    <div class="job-search-sentence-right-text">400〜800万</div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="searchjob_slider_down">
-                            <div class="liked_button_form_block w-form">
-                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="liked_button_form"><input type="submit" value="いいね!済" data-wait="Please wait..." class="liked_button w-button"></form>
-                              <div class="w-form-done">
-                                <div>Thank you! Your submission has been received!</div>
-                              </div>
-                              <div class="w-form-fail">
-                                <div>Oops! Something went wrong while submitting the form.</div>
-                              </div>
-                            </div>
-                            <div class="like_button_form_block w-form">
-                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="like_button_form"><input type="submit" value="いいね!を送る" data-wait="Please wait..." class="like_button w-button"></form>
-                              <div class="w-form-done">
-                                <div>Thank you! Your submission has been received!</div>
-                              </div>
-                              <div class="w-form-fail">
-                                <div>Oops! Something went wrong while submitting the form.</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="searchjob_section">
-                          <div class="searchjob_slider_up">
-                            <div class="search_job_slider_image_wrap"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="search_job_slider_image"></div>
-                            <div class="search_job_slider_image_wrap"><img src="images/barney-yau-BbGuVc9YTaw-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/barney-yau-BbGuVc9YTaw-unsplash-p-500.jpeg 500w, images/barney-yau-BbGuVc9YTaw-unsplash-p-800.jpeg 800w, images/barney-yau-BbGuVc9YTaw-unsplash-p-1080.jpeg 1080w, images/barney-yau-BbGuVc9YTaw-unsplash-p-1600.jpeg 1600w, images/barney-yau-BbGuVc9YTaw-unsplash-p-2000.jpeg 2000w, images/barney-yau-BbGuVc9YTaw-unsplash.jpg 4240w" alt="" class="search_job_slider_image"></div>
-                            <div class="search_job_slider_image_wrap searchjob_slider_image_hide"><img src="images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, 212.34375px" srcset="images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-1080.jpeg 1080w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-1600.jpeg 1600w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-2000.jpeg 2000w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-2600.jpeg 2600w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash-p-3200.jpeg 3200w, images/aleksandra-sapozhnikova-r_-zzXrnzxI-unsplash.jpg 4896w" alt="" class="search_job_slider_image"></div>
-                          </div>
-                          <div class="searchjob_slider_middle">
-                            <div class="searchjob_slider_middle_left">
-                              <div class="searchjob_slider_left_sentence">
-                                <a href="#" class="text-block-23 w-inline-block">
-                                  <div class="text-block-23">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
-                                </a>
-                                <div class="text-block-24">東京都内/全国に拠点を構える人材会社/22年新卒正社員採用/研修専門部署有り/風通しの良さ◎</div>
-                                <div class="text-block-24-copy">企画・マーケティング</div>
-                              </div>
-                            </div>
-                            <div class="searchjob_slider_middle_middle">
-                              <div class="search_job_slider_sentence_line"></div>
-                            </div>
-                            <div class="searchjob_slider_middle_right">
-                              <div class="searchjob_slider_right_sentence">
-                                <div class="job-search-sentence-right-div">
-                                  <div class="job-search-sentence-right-label-div">
-                                    <div class="job-search-sentence-right-label">勤務地</div>
-                                  </div>
-                                  <div class="job-search-sentence-right-text-div">
-                                    <div class="job-search-sentence-right-text">東京23区</div>
-                                  </div>
-                                </div>
-                                <div class="job-search-sentence-right-div">
-                                  <div class="job-search-sentence-right-label-div">
-                                    <div class="job-search-sentence-right-label">年収</div>
-                                  </div>
-                                  <div class="job-search-sentence-right-text-div">
-                                    <div class="job-search-sentence-right-text">400〜800万</div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="searchjob_slider_down">
-                            <div class="liked_button_form_block w-form">
-                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="liked_button_form"><input type="submit" value="いいね!済" data-wait="Please wait..." class="liked_button w-button"></form>
-                              <div class="w-form-done">
-                                <div>Thank you! Your submission has been received!</div>
-                              </div>
-                              <div class="w-form-fail">
-                                <div>Oops! Something went wrong while submitting the form.</div>
-                              </div>
-                            </div>
-                            <div class="like_button_form_block w-form">
-                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="like_button_form"><input type="submit" value="いいね!を送る" data-wait="Please wait..." class="like_button w-button"></form>
-                              <div class="w-form-done">
-                                <div>Thank you! Your submission has been received!</div>
-                              </div>
-                              <div class="w-form-fail">
-                                <div>Oops! Something went wrong while submitting the form.</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                  {% endfor %}
+                  <!-- 求人カード　ここまで-->
+
+        
+
                       </div>
                     </div>
                   </div>
