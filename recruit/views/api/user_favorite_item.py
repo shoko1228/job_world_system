@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import render, redirect
 
-from recruit.models import UserFavoriteItemModel, ItemModel, MatchingrModel
+from recruit.models import UserFavoriteItemModel, ItemModel, MatchingrModel, ComFavoriteUserModel
 from recruit.serializers.user_favorite_item import UserFavoriteItemSerializer
 from recruit.serializers.matching import MatchingSerializer
 from django.contrib.auth import get_user_model
@@ -22,7 +22,6 @@ class UserFavoriteItemAPIView(APIView):
     
     def post(self, request):
 
-
         '''
         データ登録
         '''
@@ -33,11 +32,17 @@ class UserFavoriteItemAPIView(APIView):
                 normal_user = request.user.normal_user, 
                 item = item
             )
-        results_matching = MatchingrModel.objects.get_or_create(
-                normal_user = request.user.normal_user, 
-                com_user = item.company
-            )
         seliarizer = UserFavoriteItemSerializer(results[0])
-        seliarizer_matching = MatchingSerializer(results_matching[0])
-        return Response(seliarizer.data)
+        results_list = [seliarizer.data]
+        
+        com_favorite_user = ComFavoriteUserModel.objects.filter(normal_user=request.user.normal_user, com_user=item.company).first()
+        if com_favorite_user:
+            results_matching = MatchingrModel.objects.get_or_create(
+                    normal_user = request.user.normal_user, 
+                    com_user = item.company
+                )
+            seliarizer_matching = MatchingSerializer(results_matching[0])
+            results_list.append(seliarizer_matching.data)
+        
+        return Response(results_list)
     
