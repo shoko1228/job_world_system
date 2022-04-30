@@ -432,6 +432,7 @@
         body: body,
       });
       if (res.status >= 200 && res.status < 300) {
+        console.log(res);
         return await res;
       } else {
         alert("APIエラー");

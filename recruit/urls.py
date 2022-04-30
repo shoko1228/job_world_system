@@ -9,6 +9,7 @@ from .views.company_dashboard import CompanyDashboardView
 from .views.item import ItemView
 from .views.search_user import SearchUserView
 from .views.chat import ChatView
+from .views.chatroom import ChatroomView
 from .views.item_detail import ItemDetailView
 from .views.api.user_favorite_item import UserFavoriteItemAPIView
 from .views.api.com_favorite_user import ComFavoriteUserAPIView
@@ -24,4 +25,5 @@ urlpatterns = [
     path(r'api/user_favorite', ComFavoriteUserAPIView.as_view()),
     path('search_user', SearchUserView.as_view(), name="search_user"),
     path('chat', ChatView.as_view(), name="chat"),
+    path('chatroom', ChatroomView.as_view(), name="chatroom"),
 ]
