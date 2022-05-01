@@ -217,24 +217,19 @@
             </div>
           </div>
           <div class="job_detail_button_block w-clearfix">
-            <div class="like_button_form_block w-form">
-              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="like_button_form"><input type="submit" value="いいね!を送る" data-wait="Please wait..." class="like_button job_detail_like_button w-button"></form>
-              <div class="w-form-done">
-                <div>Thank you! Your submission has been received!</div>
-              </div>
-              <div class="w-form-fail">
-                <div>Oops! Something went wrong while submitting the form.</div>
-              </div>
-            </div>
-            <div class="liked_button_form_block job_detail_button_hide w-form">
-              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="liked_button_form"><input type="submit" value="いいね!済" data-wait="Please wait..." class="liked_button job_detail_like_button w-button"></form>
-              <div class="w-form-done">
-                <div>Thank you! Your submission has been received!</div>
-              </div>
-              <div class="w-form-fail">
-                <div>Oops! Something went wrong while submitting the form.</div>
-              </div>
-            </div>
+            <input 
+            style="border: 2px solid #333;"
+            type="button" 
+            name="favoriteItem" 
+            {% if item.is_favorited %}
+              class="liked_button w-button" 
+              value="いいね済" 
+            {% else %}
+              class="like_button w-button" 
+              value="いいね！" 
+            {% endif %} 
+            data-item_id="{{ item.id }}">
+
             <a href="#" class="link-block-3-copy-copy w-inline-block">
               <div class="jobdetail_main_button">
                 <div class="div-block-46-copy">
@@ -292,3 +287,61 @@
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>
 </html>
+
+
+<script>
+  const CSRF_TOKEN = "{{ csrf_token }}";
+
+  for (let elm of document.getElementsByName("favoriteItem")) {
+    elm.addEventListener("click", (e) => {
+      //ログインしていない場合は会員登録へ
+      {% if request.user.is_authenticated %}
+        favoriteItem(e.target.dataset.item_id);
+        e.target.value = "いいね済";
+        e.target.classList.remove('like_button');
+        e.target.classList.add('liked_button');
+      {% else %}
+        window.location.href = "{% url 'account_signup' %}"
+      {% endif %}
+
+    });
+  }
+  async function favoriteItem(itemId) {
+    const postData = JSON.stringify({
+      item_id: itemId,
+    });
+    res = await executeAPI("api/item_favorite", postData, "POST");
+    if (res) {
+
+    }
+  }
+
+  async function executeAPI(url, body, method) {
+    try {
+      const headers = {
+        "content-type": "application/json",
+        "X-CSRFToken": CSRF_TOKEN,
+      };
+      const res = await fetch(url, {
+        method: method,
+        headers: headers,
+        body: body,
+      });
+      if (res.status >= 200 && res.status < 300) {
+        console.log(res);
+        return await res;
+      } else {
+        alert("APIエラー");
+        console.log(res);
+        return null;
+      }
+    } catch (e) {
+      console.log(e);
+      return null;
+    }
+  }
+
+  $('input').click(function() {
+    console.log('クリックされました！');
+  })
+</script>
