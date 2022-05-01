@@ -4,6 +4,7 @@ from ..models import ItemModel, UserFavoriteItemModel
 
 class ItemSearchForm(forms.ModelForm):
     search_words = forms.CharField(label='検索ワード', required=False)
+    company_id = forms.CharField(widget=forms.HiddenInput, required=False)
 
     class Meta:
         model = ItemModel
@@ -29,6 +30,8 @@ class ItemSearchForm(forms.ModelForm):
         location = self.cleaned_data.get('location')
         sector = self.cleaned_data.get('sector')
         industry = self.cleaned_data.get('industry')
+        company_id = self.cleaned_data.get('company_id')
+
         if search_words:
             Items = Items.filter(name__contains=search_words)
         if location:
@@ -37,4 +40,7 @@ class ItemSearchForm(forms.ModelForm):
             Items = Items.filter(industry=industry)
         if sector:
             Items = Items.filter(sector=sector)
+        if company_id:
+            Items = Items.filter(company=company_id)
+
         return Items

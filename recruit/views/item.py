@@ -18,19 +18,7 @@ class ItemView(TemplateView):
         form = ItemSearchForm(request.GET)
         items = form.filter_items(items)
         item_cnt = len(items)
-          
-        # for item in items:
-        #     item.is_favorited = False
-        #     if self.request.user.is_authenticated:
-        #         if request.user.user_type == USER_TYPE.NORMAL_USER:
-        #             favorite_items = UserFavoriteItemModel.objects.filter(user=request.user).all()
-        #             print(favorite_items)
-        #             for favorite_item in favorite_items:
-        #                 print(favorite_item)
-        #                 if item.id == favorite_item.item_id:
-        #                     item.is_favorited = True
-        #                     break
-
+        
         favorite_item_list = []
         if self.request.user.is_authenticated:
             if request.user.user_type == USER_TYPE.NORMAL_USER:

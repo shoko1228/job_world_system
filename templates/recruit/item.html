@@ -235,7 +235,7 @@
                                 <div class="job-search-sentence-right-label">給料</div>
                               </div>
                               <div class="job-search-sentence-right-text-div">
-                                <div class="job-search-sentence-right-text">{{item_feature.salary| default:""}}</div>
+                                <div class="job-search-sentence-right-text">{{item_feature.salary| default:"" |truncatechars:23}}</div>
                               </div>
                             </div>
                           </div>
@@ -312,10 +312,10 @@
                             </div>
                             <div class="job-search-sentence-right-div">
                               <div class="job-search-sentence-right-label-div">
-                                <div class="job-search-sentence-right-label">年収</div>
+                                <div class="job-search-sentence-right-label">給料</div>
                               </div>
                               <div class="job-search-sentence-right-text-div">
-                                <div class="job-search-sentence-right-text">{{item.salary| default:""}}</div>
+                                <div class="job-search-sentence-right-text">{{item.salary| default:""  |truncatechars:23}}</div>
                               </div>
                             </div>
                           </div>
