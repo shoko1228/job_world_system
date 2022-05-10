@@ -4,7 +4,8 @@ from django.views.generic import TemplateView
 from django.contrib import messages
 
 from app.const import USER_TYPE
-from ..models import ItemModel, UserFavoriteItemModel,ComFavoriteUserModel
+from ..models import ItemModel, UserFavoriteItemModel,ComFavoriteUserModel,MatchingrModel,ChatMessageModel
+from users.models import NormalUser,CompanyUser
 
 app_name = "recruit"
 
@@ -20,6 +21,21 @@ class DashboardView(TemplateView):
             return redirect("users:edit_company_profile")
         #ログインしていて、一般ユーザなら、このまま一般のHOME 
         if request.user.normal_user and request.user.user_type == USER_TYPE.NORMAL_USER:
+            #管理者とのmatching生成　会員登録時に生成するには、モデルの構造の変更必要
+            com_user = CompanyUser.objects.filter(company_name="カウンセラー").first()
+            MatchingrModel.objects.get_or_create(
+                    normal_user = request.user.normal_user, 
+                    com_user = com_user
+                )
+            first_message = ChatMessageModel.objects.filter(com_user = com_user,normal_user = request.user.normal_user).first()
+            if not first_message:
+                ChatMessageModel.objects.create(
+                    from_user = 1,
+                    normal_user = request.user.normal_user, 
+                    com_user = com_user,
+                    message = "なんでもご相談ください"
+                )
+
             if request.user.normal_user.is_blank():
                 messages.info(request, "まず初めにプロフィールを登録してください")
                 return redirect("users:edit_profile")

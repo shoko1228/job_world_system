@@ -218,7 +218,7 @@
           </div>
           <div class="job_detail_button_block w-clearfix">
             <input 
-            style="border: 2px solid #333;"
+            style="border: 2px solid #333; margin-bottom:10px"
             type="button" 
             name="favoriteItem" 
             {% if item.is_favorited %}
@@ -230,7 +230,7 @@
             {% endif %} 
             data-item_id="{{ item.id }}">
 
-            <a href="#" class="link-block-3-copy-copy w-inline-block">
+            <a href="{% url 'recruit:entry'%}?id={{item.id}}" class="link-block-3-copy-copy w-inline-block">
               <div class="jobdetail_main_button">
                 <div class="div-block-46-copy">
                   <div>エントリー</div>

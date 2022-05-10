@@ -20,7 +20,6 @@ class ChatroomView(TemplateView):
     
     def get(self, request):
         matching = MatchingrModel.objects.filter(id=request.GET.get("id")).first()
-        print(matching)
         if matching:
             chat_message=ChatMessageModel.objects.filter(com_user = matching.com_user, normal_user = matching.normal_user).all().order_by("created_at")
             # form = ChatMessageForm(initial={
