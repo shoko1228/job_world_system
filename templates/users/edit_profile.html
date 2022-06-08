@@ -90,7 +90,10 @@
                     <div class="unmypage_fieldlabel">好きなことは？</div>
                     {{ form.favorite_thing | attr:"placeholder:好きなことは？" | add_class:"w-node-_2dbfc0ac-1174-44eb-e270-1b8ff07f8607-a8faf690 w-input" }}
                     <div class="unmypage_fieldlabel">ステータス</div>
-                    {{ form.status | attr:"" | add_class:"w-node-bde39480-77d2-f993-25d4-a0315a00e5c6-a8faf690 w-select" }}
+                    <div>
+                      {{ form.status | attr:"" | add_class:"w-node-bde39480-77d2-f993-25d4-a0315a00e5c6-a8faf690 w-select" }}
+                      <div style="text-align: right;"><a  href="{% url 'cancel' %}" class="button_register top_main_button-copy w-button" style="width: 50%;">退会</a></div>
+                    </div>
                   </div>
                 </div>
                 <div class="useredit_line"></div>

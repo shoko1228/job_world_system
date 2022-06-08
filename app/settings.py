@@ -154,7 +154,7 @@ LOGIN_REDIRECT_URL = '/recruit/dashboard'
 #LOGIN_REDIRECT_URL = '/'
 #企業ユーザーのログイン後の遷移先
 #LOGIN_REDIRECT_URL_COMPANY = '/recruit/company_dashboard'
-LOGIN_REDIRECT_URL_COMPANY = '/recruit/company_dashboard'
+LOGIN_REDIRECT_URL_COMPANY = '/users/company_profile'
 LOGOUT_URL = "/"
 
 # allauth

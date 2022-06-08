@@ -140,6 +140,8 @@ class CompanyUser(models.Model):
     company_name = models.CharField(_('法人名称'), max_length=32, blank=True)
     address = models.CharField(_('本社所在地'), max_length=256, blank=True)
     phone_number = models.CharField(_('電話番号'), max_length=16, blank=True)
+    name_kanji= models.CharField(_('フルネーム（漢字）'), max_length=32, null=True, blank=True)
+    name_kana= models.CharField(_('フルネーム（かな）'), max_length=32, null=True, blank=True)
 
     def __str__(self):
         return self.company_name

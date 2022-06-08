@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.http.response import HttpResponse
 from django.views.generic import TemplateView,DetailView
 
-from ..models import ItemModel, UserFavoriteItemModel
+from ..models import ItemModel, UserFavoriteItemModel,MatchingrModel
 from ..forms.item import ItemSearchForm
 from app.const import USER_TYPE
 from django.http import Http404
@@ -32,9 +32,10 @@ class ItemDetailView(TemplateView):
                 is_favorite = UserFavoriteItemModel.objects.filter(normal_user=request.user.normal_user, item=item).all()
                 if is_favorite:
                     item.is_favorited = True
-
-
+       #カウンセラー　本番前に修正
+        counselor_matching_id = MatchingrModel.objects.get(normal_user=request.user.normal_user, com_user_id="01G296J9TZ40Z6JVF1MXH2572V")
 
         return self.render_to_response({
-            "item": item
+            "item": item,
+            "counselor_matching_id":counselor_matching_id
         })

@@ -4,11 +4,13 @@ from .views.edit_profile import EditProfileView
 from .views.edit_company_profile import EditCompanyProfileView
 from .views.profile import ProfileView
 from .views.company_profile import CompanyProfileView
+from recruit.views.api.com_favorite_user import ComFavoriteUserAPIView
 
 app_name = "users"
 urlpatterns = [
     path("edit_profile", EditProfileView.as_view(), name="edit_profile"),
     path("edit_company_profile", EditCompanyProfileView.as_view(), name="edit_company_profile"),
     path("profile", ProfileView.as_view(), name="profile"),
-    path("company_profile", CompanyProfileView.as_view(), name="company_profile")
+    path("company_profile", CompanyProfileView.as_view(), name="company_profile"),
+    path(r'api/user_favorite', ComFavoriteUserAPIView.as_view()),
 ]

@@ -76,7 +76,10 @@
                   <div class="text-block-29">自社からのいいね</div>
                 </a>
               </div>
+
               <div class="tabs-content w-tab-content">
+
+                <!--  プロフィール  --> 
                 <div data-w-tab="Tab 1" class="tab-pane-tab-1 w-tab-pane w--tab-active">
                   <div class="useredit_basic_section">
                     <div class="useredit_title">
@@ -85,64 +88,68 @@
                     <div class="w-layout-grid useredit_basic_grid-copy">
                       <div class="unmypage_fieldlabel">会社名</div>
                       <div class="unmypage_textfield">{{ company_user.company_name }}</div>
-                      <div class="unmypage_fieldlabel">フルネーム（漢字）</div>
-                      <div class="unmypage_textfield">This is </div>
-                      <div class="unmypage_fieldlabel">フルネーム（かな）</div>
-                      <div class="unmypage_textfield">This is some text inside of </div>
-                      <div class="unmypage_fieldlabel">所在地（都道府県）</div>
-                      <div class="unmypage_textfield">This is s</div>
+                      <div class="unmypage_fieldlabel">お名前（漢字）</div>
+                      <div class="unmypage_textfield">{{ company_user.name_kanji }}</div>
+                      <div class="unmypage_fieldlabel">お名前（かな）</div>
+                      <div class="unmypage_textfield">{{ company_user.name_kana }}</div>
+                      <div class="unmypage_fieldlabel">所在地</div>
+                      <div class="unmypage_textfield">{{ company_user.address }}</div>
                       <div class="unmypage_fieldlabel">メールアドレス</div>
-                      <div class="unmypage_textfield">This is some text inside of a</div>
+                      <div class="unmypage_textfield">{{ user.email }}</div>
                       <div class="unmypage_fieldlabel">電話番号</div>
-                      <div class="unmypage_textfield">This is some text inside </div>
+                      <div class="unmypage_textfield">{{ company_user.phone_number }}</div>
                       <div class="div-block-70"></div>
                     </div>
                   </div>
                 </div>
+                
+                <!--  求職者からのいいね  --> 
                 <div data-w-tab="Tab 2" class="tab-pane-tab-2 w-tab-pane">
                   <div class="unmypage_tb2_wrap">
                     <div class="searchjob_w">
                       <div class="w-layout-grid searchjob_grid">
-                        <div id="w-node-_90067003-8540-014a-cf9c-70d8ec384c36-98d08adf" class="searchuser_card">
+
+                        {% for user_favorite_com in user_favorite_coms %}
+                        <div id="w-node-a0d66eab-149d-fb32-4679-f48c8d02872d-5a26ff84" class="searchuser_card">
                           <div class="searchuser_up">
                             <div class="searchuser_up_left_wrap">
                               <div class="searchuser_image_wrap"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" width="100" alt="" class="image-8"></div>
                               <div class="searchuser_up_left">
                                 <div class="searchuser_left_pr_div">
-                                  <div class="searchuser_pr">医療機器メーカーで営業、IT業界でマーケティングの経験があります！</div>
+                                  <div class="searchuser_pr">{{user_favorite_com.normal_user.pr_message}}</div>
                                   <div class="div-block-71">
                                     <div class="searchuser_hobby">好きなことは？</div>
-                                    <div class="searchuser_hobby_text">K-POP</div>
+                                    <div class="searchuser_hobby_text">{{user_favorite_com.normal_user.favorite_thing}}</div>
                                   </div>
                                 </div>
                                 <div class="searchuser_left_div">
                                   <div class="serchuser_sector_div">
-                                    <div class="searchuser_left_label">営業</div>
-                                    <div class="searchuser_left_text">3年</div>
+                                    <div class="searchuser_left_label">{{user_favorite_com.normal_user.job_experience1}}</div>
+                                    <div class="searchuser_left_text">{{user_favorite_com.normal_user.job_experience_year1}} 年</div>
                                   </div>
                                   <div class="serchuser_sector_div">
-                                    <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                                    <div class="searchuser_left_text">3年</div>
+                                    <div class="searchuser_left_label">{{user_favorite_com.normal_user.job_experience2}}</div>
+                                    <div class="searchuser_left_text">{{user_favorite_com.normal_user.job_experience_year2}} 年</div>
                                   </div>
                                   <div class="serchuser_sector_div">
-                                    <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                                    <div class="searchuser_left_text">3年</div>
+                                    <div class="searchuser_left_label">{{user_favorite_com.normal_user.job_experience3}}</div>
+                                    <div class="searchuser_left_text">{{user_favorite_com.normal_user.job_experience_year3}} 年</div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                             <div class="searchuser_left_div_hide2">
                               <div class="serchuser_sector_div">
-                                <div class="searchuser_left_label">営業</div>
-                                <div class="searchuser_left_text">3年</div>
+                                <div class="searchuser_left_label">{{user_favorite_com.normal_user.job_experience1}}</div>
+                                <div class="searchuser_left_text">{{user_favorite_com.normal_user.job_experience_year1}} 年</div>
                               </div>
                               <div class="serchuser_sector_div">
-                                <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                                <div class="searchuser_left_text">3年</div>
+                                <div class="searchuser_left_label">{{user_favorite_com.normal_user.job_experience2}}</div>
+                                <div class="searchuser_left_text">{{user_favorite_com.normal_user.job_experience_year2}} 年</div>
                               </div>
                               <div class="serchuser_sector_div">
-                                <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                                <div class="searchuser_left_text">3年</div>
+                                <div class="searchuser_left_label">{{user_favorite_com.normal_user.job_experience3}}</div>
+                                <div class="searchuser_left_text">{{user_favorite_com.normal_user.job_experience_year3}} 年</div>
                               </div>
                             </div>
                             <div class="searchuser_up_line_wrap">
@@ -155,7 +162,7 @@
                                     <div class="searchuser_right_label">最終学歴</div>
                                   </div>
                                   <div class="searchuser_right_text_wrap">
-                                    <div class="searchuser_rigth_text">大学卒</div>
+                                    <div class="searchuser_rigth_text">{{user_favorite_com.normal_user.school_type}} {{user_favorite_com.normal_user.education_status}}</div>
                                   </div>
                                 </div>
                                 <div class="searchuser_right_div">
@@ -163,7 +170,7 @@
                                     <div class="searchuser_right_label">希望の入社時期</div>
                                   </div>
                                   <div class="searchuser_right_text_wrap">
-                                    <div class="searchuser_rigth_text">3ヶ月以内</div>
+                                    <div class="searchuser_rigth_text">{{user_favorite_com.normal_user.change_job_time}}</div>
                                   </div>
                                 </div>
                                 <div class="searchuser_right_div">
@@ -171,190 +178,89 @@
                                     <div class="searchuser_right_label">希望の勤務地</div>
                                   </div>
                                   <div class="searchuser_right_text_wrap">
-                                    <div class="searchuser_rigth_text">東京23区</div>
-                                    <div class="searchuser_rigth_text">東京23区外</div>
-                                    <div class="searchuser_rigth_text">大阪</div>
+                                    <div class="searchuser_rigth_text">{{user_favorite_com.normal_user.location1}}</div>
+                                    <div class="searchuser_rigth_text">{{user_favorite_com.normal_user.location2}}</div>
+                                    <div class="searchuser_rigth_text">{{user_favorite_com.normal_user.location3}}</div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div class="searchuser_images">
-                            <div class="searchuser_images_wrap"><img src="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1080.jpeg 1080w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1600.jpeg 1600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2000.jpeg 2000w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2600.jpeg 2600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-3200.jpeg 3200w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg 5184w" alt="" class="searchuser_image"></div>
-                            <div class="searchuser_images_wrap"><img src="images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-500.jpeg 500w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-800.jpeg 800w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1080.jpeg 1080w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1600.jpeg 1600w, images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg 4256w" alt="" class="searchuser_image"></div>
-                            <div class="searchuser_images_wrap_hide"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, 212.34375px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="searchuser_image"></div>
+                            <div class="searchuser_images_wrap"><img src="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 42vw, (max-width: 767px) 38vw, (max-width: 991px) 194.90625px, 201.71875px" srcset="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1080.jpeg 1080w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1600.jpeg 1600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2000.jpeg 2000w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2600.jpeg 2600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-3200.jpeg 3200w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg 5184w" alt="" class="searchuser_image"></div>
+                            <div class="searchuser_images_wrap"><img src="images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 42vw, (max-width: 767px) 38vw, (max-width: 991px) 194.90625px, 201.71875px" srcset="images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-500.jpeg 500w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-800.jpeg 800w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1080.jpeg 1080w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1600.jpeg 1600w, images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg 4256w" alt="" class="searchuser_image"></div>
+                            <div class="searchuser_images_wrap_hide"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 194.90625px, 201.71875px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="searchuser_image"></div>
                           </div>
+    
                           <div class="searchuser_down">
-                            <div class="liked_button_form_block w-form">
-                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="liked_button_form"><input type="submit" value="いいね!済" data-wait="Please wait..." class="liked_button w-button"></form>
-                              <div class="w-form-done">
-                                <div>Thank you! Your submission has been received!</div>
-                              </div>
-                              <div class="w-form-fail">
-                                <div>Oops! Something went wrong while submitting the form.</div>
-                              </div>
-                            </div>
-                            <div class="like_button_form_block w-form">
-                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="like_button_form"><input type="submit" value="いいね!を送る" data-wait="Please wait..." class="like_button w-button"></form>
-                              <div class="w-form-done">
-                                <div>Thank you! Your submission has been received!</div>
-                              </div>
-                              <div class="w-form-fail">
-                                <div>Oops! Something went wrong while submitting the form.</div>
-                              </div>
-                            </div>
+                             <input 
+                            style="border: 2px solid #333;"
+                            type="button" 
+                            name="favoriteUser" 
+                            {% if user_favorite_com.is_favorited %}
+                              class="liked_button w-button" 
+                              value="いいね済" 
+                            {% else %}
+                              class="like_button w-button" 
+                              value="いいね！" 
+                            {% endif %} 
+                            data-user_id="{{ user_favorite_com.normal_user.id }}"> 
                           </div>
+    
                         </div>
-                        <div id="w-node-_5cf86b6f-cda3-cf03-0310-ceca7da7932e-98d08adf" class="searchuser_card">
-                          <div class="searchuser_up">
-                            <div class="searchuser_up_left_wrap">
-                              <div class="searchuser_image_wrap"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" width="100" alt="" class="image-8"></div>
-                              <div class="searchuser_up_left">
-                                <div class="searchuser_left_pr_div">
-                                  <div class="searchuser_pr">医療機器メーカーで営業、IT業界でマーケティングの経験があります！</div>
-                                  <div class="div-block-71">
-                                    <div class="searchuser_hobby">好きなことは？</div>
-                                    <div class="searchuser_hobby_text">K-POP</div>
-                                  </div>
-                                </div>
-                                <div class="searchuser_left_div">
-                                  <div class="serchuser_sector_div">
-                                    <div class="searchuser_left_label">営業</div>
-                                    <div class="searchuser_left_text">3年</div>
-                                  </div>
-                                  <div class="serchuser_sector_div">
-                                    <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                                    <div class="searchuser_left_text">3年</div>
-                                  </div>
-                                  <div class="serchuser_sector_div">
-                                    <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                                    <div class="searchuser_left_text">3年</div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="searchuser_left_div_hide2">
-                              <div class="serchuser_sector_div">
-                                <div class="searchuser_left_label">営業</div>
-                                <div class="searchuser_left_text">3年</div>
-                              </div>
-                              <div class="serchuser_sector_div">
-                                <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                                <div class="searchuser_left_text">3年</div>
-                              </div>
-                              <div class="serchuser_sector_div">
-                                <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                                <div class="searchuser_left_text">3年</div>
-                              </div>
-                            </div>
-                            <div class="searchuser_up_line_wrap">
-                              <div class="searchuser_up_line"></div>
-                            </div>
-                            <div class="searchuser_up_right">
-                              <div class="searchuser_right">
-                                <div class="searchuser_right_div">
-                                  <div class="searchuser_right_label_wrap">
-                                    <div class="searchuser_right_label">最終学歴</div>
-                                  </div>
-                                  <div class="searchuser_right_text_wrap">
-                                    <div class="searchuser_rigth_text">大学卒</div>
-                                  </div>
-                                </div>
-                                <div class="searchuser_right_div">
-                                  <div class="searchuser_right_label_wrap">
-                                    <div class="searchuser_right_label">希望の入社時期</div>
-                                  </div>
-                                  <div class="searchuser_right_text_wrap">
-                                    <div class="searchuser_rigth_text">3ヶ月以内</div>
-                                  </div>
-                                </div>
-                                <div class="searchuser_right_div">
-                                  <div class="searchuser_right_label_wrap">
-                                    <div class="searchuser_right_label">希望の勤務地</div>
-                                  </div>
-                                  <div class="searchuser_right_text_wrap">
-                                    <div class="searchuser_rigth_text">東京23区</div>
-                                    <div class="searchuser_rigth_text">東京23区外</div>
-                                    <div class="searchuser_rigth_text">大阪</div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="searchuser_images">
-                            <div class="searchuser_images_wrap"><img src="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1080.jpeg 1080w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1600.jpeg 1600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2000.jpeg 2000w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2600.jpeg 2600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-3200.jpeg 3200w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg 5184w" alt="" class="searchuser_image"></div>
-                            <div class="searchuser_images_wrap"><img src="images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-500.jpeg 500w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-800.jpeg 800w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1080.jpeg 1080w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1600.jpeg 1600w, images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg 4256w" alt="" class="searchuser_image"></div>
-                            <div class="searchuser_images_wrap_hide"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, 212.34375px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="searchuser_image"></div>
-                          </div>
-                          <div class="searchuser_down">
-                            <div class="liked_button_form_block w-form">
-                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="liked_button_form"><input type="submit" value="いいね!済" data-wait="Please wait..." class="liked_button w-button"></form>
-                              <div class="w-form-done">
-                                <div>Thank you! Your submission has been received!</div>
-                              </div>
-                              <div class="w-form-fail">
-                                <div>Oops! Something went wrong while submitting the form.</div>
-                              </div>
-                            </div>
-                            <div class="like_button_form_block w-form">
-                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="like_button_form"><input type="submit" value="いいね!を送る" data-wait="Please wait..." class="like_button w-button"></form>
-                              <div class="w-form-done">
-                                <div>Thank you! Your submission has been received!</div>
-                              </div>
-                              <div class="w-form-fail">
-                                <div>Oops! Something went wrong while submitting the form.</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        {% endfor %}ß
                       </div>
                     </div>
                   </div>
                 </div>
+
+               <!--  自社からのいいね  --> 
                 <div data-w-tab="Tab 3" class="tab-pane-tab-3 w-tab-pane">
                   <div class="unmypage_tb2_wrap">
                     <div class="searchjob_w">
                       <div class="w-layout-grid searchjob_grid">
-                        <div id="w-node-_5fc49bef-5635-f6b1-9ab7-283a6cd9e4b2-98d08adf" class="searchuser_card">
+
+                        {% for favorite_user in favorite_users %}
+                        <div id="w-node-a0d66eab-149d-fb32-4679-f48c8d02872d-5a26ff84" class="searchuser_card">
                           <div class="searchuser_up">
                             <div class="searchuser_up_left_wrap">
                               <div class="searchuser_image_wrap"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" width="100" alt="" class="image-8"></div>
                               <div class="searchuser_up_left">
                                 <div class="searchuser_left_pr_div">
-                                  <div class="searchuser_pr">医療機器メーカーで営業、IT業界でマーケティングの経験があります！</div>
+                                  <div class="searchuser_pr">{{favorite_user.normal_user.pr_message}}</div>
                                   <div class="div-block-71">
                                     <div class="searchuser_hobby">好きなことは？</div>
-                                    <div class="searchuser_hobby_text">K-POP</div>
+                                    <div class="searchuser_hobby_text">{{favorite_user.normal_user.favorite_thing}}</div>
                                   </div>
                                 </div>
                                 <div class="searchuser_left_div">
                                   <div class="serchuser_sector_div">
-                                    <div class="searchuser_left_label">営業</div>
-                                    <div class="searchuser_left_text">3年</div>
+                                    <div class="searchuser_left_label">{{favorite_user.normal_user.job_experience1}}</div>
+                                    <div class="searchuser_left_text">{{favorite_user.normal_user.job_experience_year1}} 年</div>
                                   </div>
                                   <div class="serchuser_sector_div">
-                                    <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                                    <div class="searchuser_left_text">3年</div>
+                                    <div class="searchuser_left_label">{{favorite_user.normal_user.job_experience2}}</div>
+                                    <div class="searchuser_left_text">{{favorite_user.normal_user.job_experience_year2}} 年</div>
                                   </div>
                                   <div class="serchuser_sector_div">
-                                    <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                                    <div class="searchuser_left_text">3年</div>
+                                    <div class="searchuser_left_label">{{favorite_user.normal_user.job_experience3}}</div>
+                                    <div class="searchuser_left_text">{{favorite_user.normal_user.job_experience_year3}} 年</div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                             <div class="searchuser_left_div_hide2">
                               <div class="serchuser_sector_div">
-                                <div class="searchuser_left_label">営業</div>
-                                <div class="searchuser_left_text">3年</div>
+                                <div class="searchuser_left_label">{{favorite_user.normal_user.job_experience1}}</div>
+                                <div class="searchuser_left_text">{{favorite_user.normal_user.job_experience_year1}} 年</div>
                               </div>
                               <div class="serchuser_sector_div">
-                                <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                                <div class="searchuser_left_text">3年</div>
+                                <div class="searchuser_left_label">{{favorite_user.normal_user.job_experience2}}</div>
+                                <div class="searchuser_left_text">{{favorite_user.normal_user.job_experience_year2}} 年</div>
                               </div>
                               <div class="serchuser_sector_div">
-                                <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                                <div class="searchuser_left_text">3年</div>
+                                <div class="searchuser_left_label">{{favorite_user.normal_user.job_experience3}}</div>
+                                <div class="searchuser_left_text">{{favorite_user.normal_user.job_experience_year3}} 年</div>
                               </div>
                             </div>
                             <div class="searchuser_up_line_wrap">
@@ -367,7 +273,7 @@
                                     <div class="searchuser_right_label">最終学歴</div>
                                   </div>
                                   <div class="searchuser_right_text_wrap">
-                                    <div class="searchuser_rigth_text">大学卒</div>
+                                    <div class="searchuser_rigth_text">{{favorite_user.normal_user.school_type}} {{favorite_user.normal_user.education_status}}</div>
                                   </div>
                                 </div>
                                 <div class="searchuser_right_div">
@@ -375,7 +281,7 @@
                                     <div class="searchuser_right_label">希望の入社時期</div>
                                   </div>
                                   <div class="searchuser_right_text_wrap">
-                                    <div class="searchuser_rigth_text">3ヶ月以内</div>
+                                    <div class="searchuser_rigth_text">{{favorite_user.normal_user.change_job_time}}</div>
                                   </div>
                                 </div>
                                 <div class="searchuser_right_div">
@@ -383,142 +289,38 @@
                                     <div class="searchuser_right_label">希望の勤務地</div>
                                   </div>
                                   <div class="searchuser_right_text_wrap">
-                                    <div class="searchuser_rigth_text">東京23区</div>
-                                    <div class="searchuser_rigth_text">東京23区外</div>
-                                    <div class="searchuser_rigth_text">大阪</div>
+                                    <div class="searchuser_rigth_text">{{favorite_user.normal_user.location1}}</div>
+                                    <div class="searchuser_rigth_text">{{favorite_user.normal_user.location2}}</div>
+                                    <div class="searchuser_rigth_text">{{favorite_user.normal_user.location3}}</div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div class="searchuser_images">
-                            <div class="searchuser_images_wrap"><img src="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1080.jpeg 1080w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1600.jpeg 1600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2000.jpeg 2000w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2600.jpeg 2600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-3200.jpeg 3200w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg 5184w" alt="" class="searchuser_image"></div>
-                            <div class="searchuser_images_wrap"><img src="images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-500.jpeg 500w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-800.jpeg 800w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1080.jpeg 1080w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1600.jpeg 1600w, images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg 4256w" alt="" class="searchuser_image"></div>
-                            <div class="searchuser_images_wrap_hide"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, 212.34375px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="searchuser_image"></div>
+                            <div class="searchuser_images_wrap"><img src="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 42vw, (max-width: 767px) 38vw, (max-width: 991px) 194.90625px, 201.71875px" srcset="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1080.jpeg 1080w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1600.jpeg 1600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2000.jpeg 2000w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2600.jpeg 2600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-3200.jpeg 3200w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg 5184w" alt="" class="searchuser_image"></div>
+                            <div class="searchuser_images_wrap"><img src="images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 42vw, (max-width: 767px) 38vw, (max-width: 991px) 194.90625px, 201.71875px" srcset="images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-500.jpeg 500w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-800.jpeg 800w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1080.jpeg 1080w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1600.jpeg 1600w, images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg 4256w" alt="" class="searchuser_image"></div>
+                            <div class="searchuser_images_wrap_hide"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 194.90625px, 201.71875px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="searchuser_image"></div>
                           </div>
+    
                           <div class="searchuser_down">
-                            <div class="liked_button_form_block w-form">
-                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="liked_button_form"><input type="submit" value="いいね!済" data-wait="Please wait..." class="liked_button w-button"></form>
-                              <div class="w-form-done">
-                                <div>Thank you! Your submission has been received!</div>
-                              </div>
-                              <div class="w-form-fail">
-                                <div>Oops! Something went wrong while submitting the form.</div>
-                              </div>
-                            </div>
-                            <div class="like_button_form_block w-form">
-                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="like_button_form"><input type="submit" value="いいね!を送る" data-wait="Please wait..." class="like_button w-button"></form>
-                              <div class="w-form-done">
-                                <div>Thank you! Your submission has been received!</div>
-                              </div>
-                              <div class="w-form-fail">
-                                <div>Oops! Something went wrong while submitting the form.</div>
-                              </div>
-                            </div>
+                             <input 
+                            style="border: 2px solid #333;"
+                            type="button" 
+                            name="favoriteUser" 
+                            {% if favorite_user.is_favorited %}
+                              class="liked_button w-button" 
+                              value="いいね済" 
+                            {% else %}
+                              class="like_button w-button" 
+                              value="いいね！" 
+                            {% endif %} 
+                            data-user_id="{{ favorite_user.normal_user.id }}"> 
                           </div>
                         </div>
-                        <div id="w-node-ce1156d9-f329-32d7-b99b-34446c55830d-98d08adf" class="searchuser_card">
-                          <div class="searchuser_up">
-                            <div class="searchuser_up_left_wrap">
-                              <div class="searchuser_image_wrap"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" width="100" alt="" class="image-8"></div>
-                              <div class="searchuser_up_left">
-                                <div class="searchuser_left_pr_div">
-                                  <div class="searchuser_pr">医療機器メーカーで営業、IT業界でマーケティングの経験があります！</div>
-                                  <div class="div-block-71">
-                                    <div class="searchuser_hobby">好きなことは？</div>
-                                    <div class="searchuser_hobby_text">K-POP</div>
-                                  </div>
-                                </div>
-                                <div class="searchuser_left_div">
-                                  <div class="serchuser_sector_div">
-                                    <div class="searchuser_left_label">営業</div>
-                                    <div class="searchuser_left_text">3年</div>
-                                  </div>
-                                  <div class="serchuser_sector_div">
-                                    <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                                    <div class="searchuser_left_text">3年</div>
-                                  </div>
-                                  <div class="serchuser_sector_div">
-                                    <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                                    <div class="searchuser_left_text">3年</div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="searchuser_left_div_hide2">
-                              <div class="serchuser_sector_div">
-                                <div class="searchuser_left_label">営業</div>
-                                <div class="searchuser_left_text">3年</div>
-                              </div>
-                              <div class="serchuser_sector_div">
-                                <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                                <div class="searchuser_left_text">3年</div>
-                              </div>
-                              <div class="serchuser_sector_div">
-                                <div class="searchuser_left_label">企画・マーけてぃんぐ</div>
-                                <div class="searchuser_left_text">3年</div>
-                              </div>
-                            </div>
-                            <div class="searchuser_up_line_wrap">
-                              <div class="searchuser_up_line"></div>
-                            </div>
-                            <div class="searchuser_up_right">
-                              <div class="searchuser_right">
-                                <div class="searchuser_right_div">
-                                  <div class="searchuser_right_label_wrap">
-                                    <div class="searchuser_right_label">最終学歴</div>
-                                  </div>
-                                  <div class="searchuser_right_text_wrap">
-                                    <div class="searchuser_rigth_text">大学卒</div>
-                                  </div>
-                                </div>
-                                <div class="searchuser_right_div">
-                                  <div class="searchuser_right_label_wrap">
-                                    <div class="searchuser_right_label">希望の入社時期</div>
-                                  </div>
-                                  <div class="searchuser_right_text_wrap">
-                                    <div class="searchuser_rigth_text">3ヶ月以内</div>
-                                  </div>
-                                </div>
-                                <div class="searchuser_right_div">
-                                  <div class="searchuser_right_label_wrap">
-                                    <div class="searchuser_right_label">希望の勤務地</div>
-                                  </div>
-                                  <div class="searchuser_right_text_wrap">
-                                    <div class="searchuser_rigth_text">東京23区</div>
-                                    <div class="searchuser_rigth_text">東京23区外</div>
-                                    <div class="searchuser_rigth_text">大阪</div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="searchuser_images">
-                            <div class="searchuser_images_wrap"><img src="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1080.jpeg 1080w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-1600.jpeg 1600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2000.jpeg 2000w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-2600.jpeg 2600w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash-p-3200.jpeg 3200w, images/dieu-huyen-hoang-HvVm5tYORmE-unsplash.jpg 5184w" alt="" class="searchuser_image"></div>
-                            <div class="searchuser_images_wrap"><img src="images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg" loading="lazy" sizes="(max-width: 479px) 45vw, (max-width: 767px) 41vw, 212.34375px" srcset="images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-500.jpeg 500w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-800.jpeg 800w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1080.jpeg 1080w, images/thao-le-hoang-uGbG4LnMFMY-unsplash-p-1600.jpeg 1600w, images/thao-le-hoang-uGbG4LnMFMY-unsplash.jpg 4256w" alt="" class="searchuser_image"></div>
-                            <div class="searchuser_images_wrap_hide"><img src="images/pema-lama-Nq91gpjYskQ-unsplash.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, 212.34375px" srcset="images/pema-lama-Nq91gpjYskQ-unsplash-p-500.jpeg 500w, images/pema-lama-Nq91gpjYskQ-unsplash-p-800.jpeg 800w, images/pema-lama-Nq91gpjYskQ-unsplash-p-1080.jpeg 1080w, images/pema-lama-Nq91gpjYskQ-unsplash.jpg 3707w" alt="" class="searchuser_image"></div>
-                          </div>
-                          <div class="searchuser_down">
-                            <div class="liked_button_form_block w-form">
-                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="liked_button_form"><input type="submit" value="いいね!済" data-wait="Please wait..." class="liked_button w-button"></form>
-                              <div class="w-form-done">
-                                <div>Thank you! Your submission has been received!</div>
-                              </div>
-                              <div class="w-form-fail">
-                                <div>Oops! Something went wrong while submitting the form.</div>
-                              </div>
-                            </div>
-                            <div class="like_button_form_block w-form">
-                              <form id="email-form-5" name="email-form-5" data-name="Email Form 5" method="get" class="like_button_form"><input type="submit" value="いいね!を送る" data-wait="Please wait..." class="like_button w-button"></form>
-                              <div class="w-form-done">
-                                <div>Thank you! Your submission has been received!</div>
-                              </div>
-                              <div class="w-form-fail">
-                                <div>Oops! Something went wrong while submitting the form.</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        {% endfor %}
+
+
                       </div>
                     </div>
                   </div>
@@ -566,3 +368,63 @@
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>
 </html>
+
+
+<script>
+  const CSRF_TOKEN = "{{ csrf_token }}";
+  //初期表示 
+  $(document).ready(function(){
+    //求職者からのいいね　のタブを開く
+    $('.tab-link-tab-2').click();
+  });
+  
+
+  for (let elm of document.getElementsByName("favoriteUser")) {
+    elm.addEventListener("click", (e) => {
+      //ログインしていない場合は会員登録へ
+      {% if request.user.is_authenticated %}
+        favoriteUser(e.target.dataset.user_id);
+        e.target.value = "いいね済";
+        e.target.classList.remove('like_button');
+        e.target.classList.add('liked_button');
+      {% else %}
+        window.location.href = "{% url 'account_signup' %}"
+      {% endif %}
+
+    });
+  }
+  async function favoriteUser(userId) {
+    const postData = JSON.stringify({
+      normal_user: userId,
+    });
+    res = await executeAPI("api/user_favorite", postData, "POST");
+    if (res) {
+
+    }
+  }
+
+  async function executeAPI(url, body, method) {
+    try {
+      const headers = {
+        "content-type": "application/json",
+        "X-CSRFToken": CSRF_TOKEN,
+      };
+      const res = await fetch(url, {
+        method: method,
+        headers: headers,
+        body: body,
+      });
+      if (res.status >= 200 && res.status < 300) {
+        return await res;
+      } else {
+        alert("APIエラー");
+        console.log(res);
+        return null;
+      }
+    } catch (e) {
+      console.log(e);
+      return null;
+    }
+  }
+
+</script>
